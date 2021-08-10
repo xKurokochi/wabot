@@ -23,7 +23,7 @@
 
 ```bash
 > git clone https://github.com/dvnz99/wabot/
-> cd whatsapp-bot
+> cd wabot
 > npm i
 ```
 ### For termux users before running the above command write this command
