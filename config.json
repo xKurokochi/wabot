@@ -1,7 +1,7 @@
 {	
 	"prefix": "multi", 
 	"defaultSessionName": "bot", 
-	"zeksKey": "Kopler199",
+	"zeksKey": "apivinz",
 	"autoRead": false,
 	"maxLimit": 30,
 	"ownerList": ["628885960825@s.whatsapp.net","62857024477637@s.whatsapp.net"], 
@@ -9,9 +9,9 @@
         "apiLol": "https://api.lolhuman.xyz",
         "imgUrl": "https://i.ibb.co/c80cZ3Y/pp-biodata.jpg",
 	"botname": "J-BOT", 
-	"xkey": "8833d90ca4739a1d", 
+	"xkey": "your_key", 
         "eztykey": "eztyb",
-        "lolkey": "Jbotz",
+        "lolkey": "your_key",
 	"pack": "Akmalzz Gantemg",
 	"author": "08885960825"
 }
