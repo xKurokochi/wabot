@@ -1042,6 +1042,7 @@ function secondsToHms(d) {
     }
     
 	footer = `*── 「 BOT STAT 」 ──*
+
 Runtime : ${formater1(uptime1)}
 Speed : ${latensip.toFixed(3)} Second
 Nama : ${yo.name}
@@ -1053,7 +1054,9 @@ MNC : ${yo.phone.mnc}
 OS : ${yo.phone.os_version}
 Platform : ${os.platform()}
 Version : ${os.version}
-Host : ${os.hostname()}`
+Host : ${os.hostname()}
+
+*J-BOT | Recode By* @${628885960825}`
 
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
