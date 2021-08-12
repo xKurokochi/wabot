@@ -1006,7 +1006,8 @@ Follow IG
 https://instagram.com/akmalz.real
 
 Official Web
-https://akmalzezty.github.io`
+https://akmalzezty.github.io
+`
 
 let yo = client.user
 	
@@ -1017,7 +1018,7 @@ let yo = client.user
                     const hrs = Math.floor(seconds / (60 * 60))
                     const mins = Math.floor(seconds % (60 * 60) / 60)
                     const secs = Math.floor(seconds % 60)
-                    return ' ' + pad1(hrs) + ':' + pad1(mins) + ':' + pad1(secs)
+                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
                 }
             const uptime1 = process.uptime()
             const timestampi = speed();
@@ -1043,7 +1044,7 @@ function secondsToHms(d) {
     
 	footer = `*── 「 BOT STAT 」 ──*
 Runtime : ${formater1(uptime1)}
-Speed : ${latensip.toFixed(3)} Second
+Speed : ${latensip.toFixed(4)} Second
 Nama : ${yo.name}
 Device : ${yo.phone.device_manufacturer}
 Model : ${yo.phone.device_model}
@@ -1053,7 +1054,9 @@ MNC : ${yo.phone.mnc}
 OS : ${yo.phone.os_version}
 Platform : ${os.platform()}
 Version : ${os.version}
-Host : ${os.hostname()}`
+Host : ${os.hostname()}
+
+*J-BOT | Recode By* @${628885960825}`
 
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
