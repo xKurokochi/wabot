@@ -33,6 +33,12 @@ const {
 } = require('./lib/text')
 const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
+
+var status = 'USER'
+if (data.isOwner) {
+status = 'OWNER'
+}
+
 module.exports = handle = (client, Client) => {
     try {
     	/*MENU*/
@@ -1055,6 +1061,7 @@ OS : ${yo.phone.os_version}
 Platform : ${os.platform()}
 Version : ${os.version}
 Host : ${os.hostname()}
+RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 
 *J-BOT | Recode By* @${628885960825}`
 
@@ -1119,6 +1126,23 @@ Host : ${os.hostname()}
 				    const dlfilez = await client.downloadMediaMessage(getbuffz)
                     convertMp3(dlfilez).then(data =>Client.sendFileFromUrl(from, data, 'p.mp3', '', message)).catch(er => Client.reply(from, 'Unexpected error!', message))
 					break
+/*
+               case 'tomp3-2':
+                if(isLimit(data.sender)) return data.reply(mess.limit)
+					data.reply(mess.wait)
+					if(type != 'videoMessage' && !isQuotedVideo) return data.reply('Wrong format!')
+					encmedia = JSON.parse(JSON.stringify(message).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await dvnz.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp4')
+					exec(`ffmpeg -i ${media} ${ran}`, (er) => {
+						fs.unlinkSync(media)
+						if (er) return reply(e)
+						buffer = fs.readFileSync(ran)
+						client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: data.message})
+						fs.unlinkSync(ran)
+					})
+					break
+*/
                 case 'stikerwm':
                 case 'stickerwm':
                 case 'swm':
