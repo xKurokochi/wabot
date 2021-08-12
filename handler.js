@@ -34,11 +34,6 @@ const {
 const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
 
-var status = 'USER'
-if (data.isOwner) {
-status = 'OWNER'
-}
-
 module.exports = handle = (client, Client) => {
     try {
     	/*MENU*/
