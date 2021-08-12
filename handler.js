@@ -1006,7 +1006,8 @@ Follow IG
 https://instagram.com/akmalz.real
 
 Official Web
-https://akmalzezty.github.io`
+https://akmalzezty.github.io
+`
 
 let yo = client.user
 	
@@ -1042,7 +1043,6 @@ function secondsToHms(d) {
     }
     
 	footer = `*── 「 BOT STAT 」 ──*
-
 Runtime : ${formater1(uptime1)}
 Speed : ${latensip.toFixed(4)} Second
 Nama : ${yo.name}
