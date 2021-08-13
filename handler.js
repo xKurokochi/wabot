@@ -373,12 +373,33 @@ module.exports = handle = (client, Client) => {
             if(dataUser[data.sender].premium) return data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\nAnda adalah user premium yang memiliki akses tanpa batas limit!`)
             limits = configs.maxLimit - dataUser[data.sender].limit
             if(limits <= 0) return data.reply("```" + `Limit anda sudah habis` + "```")
-            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
+            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00`)
         })
         Client.cmd.on('infobot', async (data) => {
-		data.reply(ingfo)
+		data.reply(`Bot ini di buat dengan bahasa pemrograman Node.js / JavaScript
+Source code bot : https://github.com/justpiple/whatsapp-bot
+Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}owner`)
 		})
         /*OWNER*/
+        Client.cmd.on('', async (data) => {
+        	if (!data.isOwner) return
+			try {
+			return client.sendMessage(data.from, JSON.stringify(eval(data.args.join('')),null,'\t'), MessageType.text, {quoted: data.message})
+			} catch(err) {
+			e = String(err)
+			reply(e)
+			}
+			})
+		Client.cmd.on('>', async (data) => {
+			if (!data.isOwner) return
+			var konsol = data.args.join('')
+			Return = (sul) => {
+			var sat = JSON.stringify(sul, null, 2)
+			bang = util.format(sat)
+			if (sat == undefined){
+			bang = util.format(sul)
+			}
+			return data.reply(bang)
         Client.cmd.on('setpp', async (data) => {
             if(!data.isOwner) return data.reply(mess.ownerOnly)
             if(!data.isQuotedImage && data.type != 'imageMessage') return data.reply(`Wrong format!, please send image with caption ${data.prefix}setgroupicon, or reply image with ${data.prefix}setgroupicon`)
@@ -482,6 +503,17 @@ module.exports = handle = (client, Client) => {
         Client.cmd.on('owner', async (data) => {
             Client.sendContact(data.from, { number: configs.ownerList[0].split('@')[0], name: 'owner' }, data.message)
         })
+        Client.cmd.on('fetch', async(data) => {
+           if (isLimit(data.sender)) return data.reply(mess.limit)
+           if (data.body == "") return data.reply('input url')
+           axios.get(`${data.body}`)
+           .then(res => {
+             data.reply(res.data)
+           })
+           .catch(e => {
+             data.reply('' + e)
+           })
+         })
         Client.cmd.on('premium', async (data) => {
             if(!data.isOwner) return data.reply(mess.ownerOnly)
             const dataUser = JSON.parse(fs.readFileSync('./lib/json/dataUser.json'))
@@ -1001,14 +1033,6 @@ module.exports = handle = (client, Client) => {
                 case 'menu':
                 case 'help':
                 case 'list':
-                teksh = `Hai kak *${data.pushname},* Semoga harimu menyenangkan
-
-Follow IG
-https://instagram.com/akmalz.real
-
-Official Web
-https://akmalzezty.github.io
-`
 
 let yo = client.user
 	
@@ -1024,10 +1048,10 @@ let yo = client.user
             const uptime1 = process.uptime()
             const timestampi = speed();
             const latensip = speed() - timestampi
-    var ramadhan2k21 = new Date("januari 1, 2022 00:00:00").getTime() 
+    var nyear = new Date("januari 1, 2022 00:00:00").getTime() 
 
 var now = new Date().getTime()
-var hitungMundur = ramadhan2k21 - now 
+var hitungMundur = nyear - now 
 
 
 function secondsToHms(d) {
@@ -1043,10 +1067,19 @@ function secondsToHms(d) {
     return wDisplay + hDisplay + mDisplay + sDisplay; 
     }
     
+    teksny = `Hai kak *${data.pushname},* Semoga harimu menyenangkan
+
+Follow IG
+https://instagram.com/akmalz.real
+
+Official Web
+https://akmalzezty.github.io
+
+Note : Semua fitur free ya, dan ga semua fitur work :)
+`
+
 	footer = `*── 「 BOT STAT 」 ──*
-Runtime : ${formater1(uptime1)}
-Speed : ${latensip.toFixed(4)} Second
-Nama : ${yo.name}
+Bot Name : ${yo.name}
 Device : ${yo.phone.device_manufacturer}
 Model : ${yo.phone.device_model}
 WA Ver : ${yo.phone.wa_version}
@@ -1056,13 +1089,15 @@ OS : ${yo.phone.os_version}
 Platform : ${os.platform()}
 Version : ${os.version}
 Host : ${os.hostname()}
+Runtime : ${formater1(uptime1)}
+Speed : ${latensip.toFixed(4)} Second
 RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 
 *J-BOT | Recode By* @${628885960825}`
 
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
-                           contentText: teksh,
+                           contentText: teksny,
                            footerText: footer,
                                 "contextInfo": {
 									  mentionedJid: [configs.ownerList[0]],
@@ -1766,6 +1801,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     client.groupSettingChange(from, GroupSettingChange.messageSend, true)
                     datas.reply(`Group telah ditutup oleh admin @${datas.sender.split('@')[0]}`)
 				    break
+
             }
         })
     } catch (e) {
