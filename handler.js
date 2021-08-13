@@ -373,7 +373,7 @@ module.exports = handle = (client, Client) => {
             if(dataUser[data.sender].premium) return data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\nAnda adalah user premium yang memiliki akses tanpa batas limit!`)
             limits = configs.maxLimit - dataUser[data.sender].limit
             if(limits <= 0) return data.reply("```" + `Limit anda sudah habis` + "```")
-            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00`)
+            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
         })
         Client.cmd.on('infobot', async (data) => {
 		data.reply(`Bot ini di buat dengan bahasa pemrograman Node.js / JavaScript
@@ -381,25 +381,6 @@ Source code bot : https://github.com/justpiple/whatsapp-bot
 Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}owner`)
 		})
         /*OWNER*/
-        Client.cmd.on('', async (data) => {
-        	if (!data.isOwner) return
-			try {
-			return client.sendMessage(data.from, JSON.stringify(eval(data.args.join('')),null,'\t'), MessageType.text, {quoted: data.message})
-			} catch(err) {
-			e = String(err)
-			reply(e)
-			}
-			})
-		Client.cmd.on('>', async (data) => {
-			if (!data.isOwner) return
-			var konsol = data.args.join('')
-			Return = (sul) => {
-			var sat = JSON.stringify(sul, null, 2)
-			bang = util.format(sat)
-			if (sat == undefined){
-			bang = util.format(sul)
-			}
-			return data.reply(bang)
         Client.cmd.on('setpp', async (data) => {
             if(!data.isOwner) return data.reply(mess.ownerOnly)
             if(!data.isQuotedImage && data.type != 'imageMessage') return data.reply(`Wrong format!, please send image with caption ${data.prefix}setgroupicon, or reply image with ${data.prefix}setgroupicon`)
@@ -1801,7 +1782,6 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     client.groupSettingChange(from, GroupSettingChange.messageSend, true)
                     datas.reply(`Group telah ditutup oleh admin @${datas.sender.split('@')[0]}`)
 				    break
-
             }
         })
     } catch (e) {
