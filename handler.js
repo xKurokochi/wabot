@@ -33,6 +33,11 @@ const {
 } = require('./lib/text')
 const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
+const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
+
+const isMedia = (type === 'imageMessage' || type === 'videoMessage')
+const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
+const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
 
 module.exports = handle = (client, Client) => {
     try {
@@ -291,6 +296,16 @@ module.exports = handle = (client, Client) => {
             for(let i = 0; i < getresult.data.result.length; i++) {
                 Client.sendFileFromUrl(data.from, getresult.data.result[i].url, `ig.${getresult.data.result[i].type}`, `「 INSTAGRAM 」\n\n*Username*: ${getresult.data.owner}\n*Caption*: ${getresult.data.caption}`, data.message);
             }
+        })
+        Client.cmd.on('nhentai', async (data) => {
+        	if(isLimit(data.sender)) return data.reply(mess.limit)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}nhentai [ kode ]*\nContoh : ${data.prefix}nhentai 19283`)
+            data.reply(mess.wait)
+        	hentong = await axios.get(`https://zxbott.herokuapp.com/nhentai?code=${data.body}`)
+        	y = hentong.data
+        	teks = `English : ${y.english}\nJapanese : ${y.japanese}\nLatin : ${y.pretty}\nHalaman : ${y.totalpage}`
+        	data.reply(teks)
+        	client.sendMessage(data.from, y.pdf, `${y.pretty}.pdf`, ``, data.message)
         })
         Client.cmd.on('igstory', async (data) => {
             try {
@@ -610,7 +625,7 @@ Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}own
 			axios.get(`${configs.apiUrl}/api/yts?apikey=${configs.zeksKey}&q=${data.body}`).then((xres) =>{
 			if (!xres.data.status || !xres.data.result) return data.reply(xres.data.message)
 			secs = []
-			xres.data.result.splice(5, xres.data.result.length)
+			xres.data.result.splice(10, xres.data.result.length)
 			xres.data.result.forEach((xres, i) =>{
 				secs.push({
                         "rows": [
@@ -1029,11 +1044,10 @@ let yo = client.user
             const uptime1 = process.uptime()
             const timestampi = speed();
             const latensip = speed() - timestampi
-    var nyear = new Date("januari 1, 2022 00:00:00").getTime() 
 
+var timenye = new Date("januari 1, 2022 00:00:00").getTime() 
 var now = new Date().getTime()
-var hitungMundur = nyear - now 
-
+var hitungMundur = timenye - now 
 
 function secondsToHms(d) {
     d = Number(d);
@@ -1048,13 +1062,30 @@ function secondsToHms(d) {
     return wDisplay + hDisplay + mDisplay + sDisplay; 
     }
     
-    teksny = `Hai kak *${data.pushname},* Semoga harimu menyenangkan
+const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time2 < "23:59:00"){
+var ucapanWaktu = 'Selamat malam'
+                                        }
+if(time2 < "20:00:00"){
+var ucapanWaktu = 'Selamat malam'
+                                         }
+if(time2 < "18:00:00"){
+var ucapanWaktu = 'Selamat petang'
+                                         }
+if(time2 < "15:00:00"){
+var ucapanWaktu = 'Selamat sore'
+                                         }
+if(time2 < "11:00:00"){
+var ucapanWaktu = 'Selamat siang'
+                                         }
+if(time2 < "04:30:00"){
+var ucapanWaktu = 'Selamat pagi'
+										}
+    
+    teksny = `${ucapanWaktu} kak *${data.pushname},* Semoga harimu menyenangkan
 
-Follow IG
-https://instagram.com/akmalz.real
-
-Official Web
-https://akmalzezty.github.io
+*Tahun baru 2022*
+	${hitungMundur}
 
 Note : Semua fitur free ya, dan ga semua fitur work :)
 `
@@ -1115,6 +1146,16 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     let zz = await client.prepareMessageFromContent(from, {buttonsMessage: buttonMessage}, {})
                 	client.relayWAMessage(zz, {waitForAck: true})     
                     break
+					case 'setfakeimg':
+        	if ((isMedia && !message.message.videoMessage || isQuotedImage || isQuotedSticker) && data.args.length == 0) {
+          	boij = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(message).replace('quotedM','m')).message.extendedTextMessage.contextInfo : message
+			delb = await client.downloadMediaMessage(boij)
+			fs.writeFileSync(`./media/fake.jpeg`, delb)
+			data.reply('Sukses')
+        	} else {
+            data.reply(`Kirim gambar dengan caption ${data.prefix}sethumb`)
+          	}
+			break
                     /*STICKER*/
                 case 'sgif':
                 case 'sticker':
