@@ -40,6 +40,25 @@ module.exports = handle = (client, Client) => {
 
     	/*MENU*/
     	Client.cmd.on('listmsg', async(data) => {
+    	const time = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time < "23:59:00"){
+var ucapanWaktu = 'Selamat malam'
+                                        }
+if(time < "20:00:00"){
+var ucapanWaktu = 'Selamat petang'
+                                         }
+if(time < "18:00:00"){
+var ucapanWaktu = 'Selamat sore'
+                                         }
+if(time < "15:00:00"){
+var ucapanWaktu = 'Selamat siang'
+                                         }
+if(time < "11:00:00"){
+var ucapanWaktu = 'Selamat pagi'
+                                         }
+if(time < "03:45:00"){
+var ucapanWaktu = 'Selamat malam'
+										}
              sec = []
           sec.push({
             "rows": [
@@ -1789,6 +1808,25 @@ case 'audtag':
             	*/
             switch(idStick) {
                 case '2.453746655066493e+123':
+                const time3 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time3 < "23:59:00"){
+var ucapanWaktu = 'Selamat malam'
+                                        }
+if(time3 < "20:00:00"){
+var ucapanWaktu = 'Selamat petang'
+                                         }
+if(time3 < "18:00:00"){
+var ucapanWaktu = 'Selamat sore'
+                                         }
+if(time3 < "15:00:00"){
+var ucapanWaktu = 'Selamat siang'
+                                         }
+if(time3 < "11:00:00"){
+var ucapanWaktu = 'Selamat pagi'
+                                         }
+if(time3 < "03:45:00"){
+var ucapanWaktu = 'Selamat malam'
+										}
                     sec = []
           sec.push({
             "rows": [
