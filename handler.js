@@ -74,7 +74,7 @@ var ucapanWaktu = 'Selamat malam'
 										}
         
 const fakethumb = (teks, yes) => {
-client.sendMessage(data.from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: message, caption:yes})
+client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: message, caption:yes})
          }
 /*————————— [ FUNCTION ]—————————*/
 
