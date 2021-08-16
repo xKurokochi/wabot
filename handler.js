@@ -1897,10 +1897,11 @@ var ucapanWaktu = 'Selamat malam'
               }
               ], title: `Pilih Satu ya kak`
               })
+              num = `${sender.split("@")[0]}@s.whatsapp.net`
           	let po = client.prepareMessageFromContent(from, {
 				  "listMessage":{
                   "title": `MENU J-BOT`,
-                  "description": `${ucapanWaktu} kak *${data.pushname}*`,
+                  "description": `${ucapanWaktu} kak @${num.split("@")[0]}`,
                   "buttonText": "MENU!",
                   "listType": "SINGLE_SELECT",
                   "sections": sec}}, {}) 
