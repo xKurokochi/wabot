@@ -37,6 +37,86 @@ const { text, extendedText, contact, location, liveLocation, image, video, stick
 
 module.exports = handle = (client, Client) => {
     try {
+    	
+/*————————— [ FUNCTION ] —————————*/
+
+    	const formater1 = (seconds) => {
+                    const pad1 = (s) => {
+                        return (s < 10 ? '0' : '') + s
+                    }
+                    const hrs = Math.floor(seconds / (60 * 60))
+                    const mins = Math.floor(seconds % (60 * 60) / 60)
+                    const secs = Math.floor(seconds % 60)
+                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
+                }
+            const uptime1 = process.uptime()
+            const timestampi = speed();
+            const latensip = speed() - timestampi
+    
+const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time2 < "23:59:00"){
+var ucapanWaktu = 'Selamat malam'
+                                        }
+if(time2 < "20:00:00"){
+var ucapanWaktu = 'Selamat petang'
+                                         }
+if(time2 < "18:00:00"){
+var ucapanWaktu = 'Selamat sore'
+                                         }
+if(time2 < "15:00:00"){
+var ucapanWaktu = 'Selamat siang'
+                                         }
+if(time2 < "11:00:00"){
+var ucapanWaktu = 'Selamat pagi'
+                                         }
+if(time2 < "03:45:00"){
+var ucapanWaktu = 'Selamat malam'
+										}
+										
+/*
+>---------< FAKE REPLY >---------<
+*/
+		const fake = `*J - BOT*`
+        //FAKEREPLY PRODUCT
+            const ftoko = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})},message: {"productMessage": {"product": {"productImage":{"mimetype": "image/jpeg","jpegThumbnail": fs.readFileSync(`./media/fake.jpeg`)},"title": `NGEJUDI GAK BROH?\n${pushname}`,"description": "J-BOT", "currencyCode": "IDR","priceAmount1000": "9999999999","retailerId": "X - Dev Team","productImageCount": 1},"businessOwnerJid": `0@s.whatsapp.net`}}}
+            //FAKE KONTAK
+            const fkontak = { 
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./media/fake.jpeg')}}}
+            //FAKE STICKER
+            const fsticker = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})},"message": {"stickerMessage": { "url": "https://mmg.whatsapp.net/d/f/Am6FBfNf-E2f1VoGBXkPaNAy7L6Tw_HMavKrHEt48QM4.enc","fileSha256": "Yfj8SW7liSEnDakvyVlXVZQ1LJBC9idn09X7KHe8HTc=","fileEncSha256": "F854aUrzgAkBTOVULpne4oSIi6S04Jo56pjZEo+p+9U=","mediaKey": "Z3nA2asclAAwWHngNO/vJ81qxOE2/0gkEnXak+NxPV4=","mimetype": "image/webp","height": 64,"width": 64,"directPath": "/v/t62.15575-24/12097272_1193895144391295_8973688483514349023_n.enc?ccb=11-4&oh=5a9d7147627a8355569f1a641b9ebee3&oe=60C65E73","fileLength": "7186","mediaKeyTimestamp": "1622815545","isAnimated": false}}}
+            //FAKE VN
+            const fvn = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds": "9999999","ptt": "true"}}}
+            //FAKE TEXT
+            const ftext = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})},message: { "extendedTextMessage": {"text": `${fake}`,"title": `Hmm`,'jpegThumbnail': fs.readFileSync('./media/fake.jpeg')}}}
+            //FAKE LIVE ACTION
+            const floc2 = {
+                  key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "6289530863358-1621036495@g.us" },message: { "liveLocationMessage": { "title":`${fake}`,}}}
+            //FAKEREPLY TROLI
+            const ftroli = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "16505434800@s.whatsapp.net" } : {})},message: {orderMessage: {itemCount : 2021,status: 1,surface : 1,message: `${fake}`,orderTitle: 'Bang',thumbnail: fs.readFileSync('./media/fake.jpeg'), sellerJid: '0@s.whatsapp.net'}}}
+            //FAKEREPLY VIDEO
+            const fvideo = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {}) },message: { "videoMessage": { "title":"hallo bang","h": `Hmm`,'seconds': '-99999', 'caption': `${fake}`,'jpegThumbnail': fs.readFileSync('./media/fake.jpeg')}}}
+            //FAKEREPLY GROUPINVITE
+            const fgc = {
+                  key: {"fromMe": false,"participant": "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "62895619083555-1616169743@g.us","inviteCode": "mememteeeekkeke","groupName": "J-BOT OFFICIAL", "caption": `${fake}`, 'jpegThumbnail': fs.readFileSync('./media/fake.jpeg')}}}
+            //FAKEREPLY GIF
+            const fgif = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {}) },message: { "videoMessage": { "title":"hallo bang","h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `${fake}`,'jpegThumbnail': fs.readFileSync('./media/fake.jpeg')}}} 
+                  
+const faketroli = (text) => {
+client.sendMessage(data.from, text, MessageType.text, {quoted: ftroli})
+        }
+        
+const fakethumb = (teks, yes) => {
+client.sendMessage(data.from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: data.message, caption:yes})
+         }
+/*————————— [ FUNCTION ]—————————*/
+
     	/*MENU*/
     	Client.cmd.on('listmsg', async(data) => {
              sec = []
@@ -100,19 +180,19 @@ module.exports = handle = (client, Client) => {
               {
                 "title": "Info", 
                 "description": "", 
-                "rowId": `${data.prefix}info`
+                "rowId": `${data.prefix}infom`
               }, 
               {
                 "title": "Owner Menu", 
                 "description": "", 
                 "rowId": `${data.prefix}ownerm`
               }
-              ]
+              ], title: `Pilih Satu ya kak`
               })
           	let po = client.prepareMessageFromContent(data.from, {
 				  "listMessage":{
                   "title": `MENU J-BOT`,
-                  "description": `List Menu nya kak *${data.pushname}*`,
+                  "description": `${ucapanWaktu} kak *${data.pushname}*`,
                   "buttonText": "MENU!",
                   "listType": "SINGLE_SELECT",
                   "sections": sec}}, {}) 
@@ -196,7 +276,7 @@ module.exports = handle = (client, Client) => {
                      data.reply('' + e) 
                    }
          })
-         Client.cmd.on('info', async(data) => {
+         Client.cmd.on('infom', async(data) => {
                    try {
                     data.reply(info(data.prefix)) 
                    } catch(e) {
@@ -222,7 +302,7 @@ module.exports = handle = (client, Client) => {
                 ytm = res.data.result
                 teks = `*Data berhasil didapatkan!*\n\n*Judul* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : ${ytm.ext}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Data Berhasil Didapatkan!*\n\n*Title* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : mp4\n*Link* : ${ytm.link}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`, data.message)
-                Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
+                fakethumb(ytm.thumb, teks)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
             } catch {
                 data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
@@ -238,7 +318,7 @@ module.exports = handle = (client, Client) => {
                 ytm = res.data.result
                 teks = `*Data berhasil didapatkan!*\n\n*Judul* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : ${ytm.ext}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Data Berhasil Didapatkan!*\n\n*Title* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : mp3\n*Link* : ${ytm.link}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`, data.message)
-                Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
+                fakethumb(ytm.thumb, teks)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp3`, ``, data.message)
             } catch {
                 data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
@@ -301,7 +381,7 @@ module.exports = handle = (client, Client) => {
         	y = hentong.data
         	teks = `English : ${y.english}\nJapanese : ${y.japanese}\nLatin : ${y.pretty}\nHalaman : ${y.totalpage}`
         	data.reply(teks)
-        	client.sendMessage(data.from, y.pdf, `${y.pretty}.pdf`, ``, data.message)
+        	Client.sendFileFromUrl(data.from, y.pdf, `${y.pretty}.pdf`, ``, data.message)
         })
         Client.cmd.on('igstory', async (data) => {
             try {
@@ -336,7 +416,7 @@ module.exports = handle = (client, Client) => {
         Client.cmd.on('fml', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/fml?apikey=${configs.zeksKey}`)
-            data.reply(res.data.result)
+            faketroli(res.data.result)
         })
         Client.cmd.on('randomquran', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -353,12 +433,12 @@ module.exports = handle = (client, Client) => {
         Client.cmd.on('meme', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/memeindo?apikey=${configs.zeksKey}`)
-            Client.sendFileFromUrl(data.from, res.data.result, 'p.jpg', ``, data.message)
+            fakethumb(res.data.result, '')
         })
         Client.cmd.on('darkjoke', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/darkjokes?apikey=${configs.zeksKey}`)
-            Client.sendFileFromUrl(data.from, res.data.result, 'p.jpg', ``, data.message)
+            fakethumb(res.data.result, 'tobat bro')
         })
         Client.cmd.on('nickepep', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -372,7 +452,7 @@ module.exports = handle = (client, Client) => {
             res = await axios.get(`${configs.apiUrl}/api/quote?apikey=${configs.zeksKey}`)
             que = res.data.result
             teks = `*Author* : ${que.author}\n*Quotes* : ${que.quotes}`
-            data.reply(teks)
+            faketroli(teks)
         })
         Client.cmd.on('pantun', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -1024,66 +1104,15 @@ Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}own
                 case 'cmd':
                 case 'menu':
                 case 'help':
-                case 'list':
-
+num = `${sender.split("@")[0]}@s.whatsapp.net`
 let yo = client.user
-	
-	const formater1 = (seconds) => {
-                    const pad1 = (s) => {
-                        return (s < 10 ? '0' : '') + s
-                    }
-                    const hrs = Math.floor(seconds / (60 * 60))
-                    const mins = Math.floor(seconds % (60 * 60) / 60)
-                    const secs = Math.floor(seconds % 60)
-                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
-                }
-            const uptime1 = process.uptime()
-            const timestampi = speed();
-            const latensip = speed() - timestampi
-
-var timenye = new Date("januari 1, 2022 00:00:00").getTime() 
-var now = new Date().getTime()
-var hitungMundur = timenye - now 
-
-function secondsToHms(d) {
-    d = Number(d);
-    var w = Math.floor(d / 36000 / 2400);
-    var h = Math.floor(d / 3600 / 360 / 6);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
-    var wDisplay = w > 0 ? w + (w == 1 ? " Hari,," : " Hari, ") : "";
-    var hDisplay = h > 0 ? h + (h == 1 ? " Jam,, " : " Jam, ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? " Menit, " : " Menit, ") : "";
-    var sDisplay = s > 0 ? s + (s == 1 ? " Detik": " Detik") : "";
-    return wDisplay + hDisplay + mDisplay + sDisplay; 
-    }
     
-const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-if(time2 < "23:59:00"){
-var ucapanWaktu = 'Selamat malam'
-                                        }
-if(time2 < "20:00:00"){
-var ucapanWaktu = 'Selamat malam'
-                                         }
-if(time2 < "18:00:00"){
-var ucapanWaktu = 'Selamat petang'
-                                         }
-if(time2 < "15:00:00"){
-var ucapanWaktu = 'Selamat sore'
-                                         }
-if(time2 < "11:00:00"){
-var ucapanWaktu = 'Selamat siang'
-                                         }
-if(time2 < "04:30:00"){
-var ucapanWaktu = 'Selamat pagi'
-										}
-    
-    teksny = `${ucapanWaktu} kak *${data.pushname},* Semoga harimu menyenangkan
+    teksny = `${ucapanWaktu} kak @${num.split("@")[0]}, Semoga harimu menyenangkan
 
-*Tahun baru 2022*
-	${hitungMundur}
+Jam : ${time2}
+Tanggal : ${date}
 
-Note : Semua fitur free ya, dan ga semua fitur work :)
+Note : Semua fitur free ya, ga semua fitur work krn sy noob :)
 `
 
 	footer = `*── 「 BOT STAT 」 ──*
@@ -1108,7 +1137,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                            contentText: teksny,
                            footerText: footer,
                                 "contextInfo": {
-									  mentionedJid: [configs.ownerList[0]],
+									  mentionedJid: [configs.ownerList[0], num],
                                       participant: sender,
                                       stanzaId: message.key.id,
                                       quotedMessage: message.message,
@@ -1142,6 +1171,33 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     let zz = await client.prepareMessageFromContent(from, {buttonsMessage: buttonMessage}, {})
                 	client.relayWAMessage(zz, {waitForAck: true})     
                     break
+case 'imgtag':
+					if(!isAdmin || !data.isOwner) return data.reply('only be used by admin!')
+				    var encmedia = data.isQuotedImage ? JSON.parse(JSON.stringify(data.message).replace('quotedM','m')).message.extendedTextMessage.contextInfo : data.message
+					media = await client.downloadMediaMessage(encmedia)
+					konsol = data.body
+					var group = await client.groupMetadata(data.from)
+					var member = group['participants']
+					var mem = []
+					member.map( async adm => {
+					mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+					})
+					client.sendMessage(data.from,media,image,{contextInfo: { mentionedJid: mem }, quoted: { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "393470602054-1351628616@g.us" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "「 Bot 」\n Created By @akmal.okz", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('media/fake.jpeg')} } }, caption: `${konsol}`})
+			      break
+case 'audtag':
+			if(!isAdmin || !data.isOwner) return data.reply('only be used by admin!')
+        	       var encmedia = data.isQuotedAudio ? JSON.parse(JSON.stringify(data.message).replace('quotedM','m')).message.extendedTextMessage.contextInfo : data.message
+					media = await client.downloadMediaMessage(encmedia)
+					var group = await client.groupMetadata(data.from)
+					var member = group['participants']
+					var mem = []
+					member.map( async adm => {
+					mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+					})
+					client.sendMessage(data.from, media, audio,{contextInfo: { mentionedJid: mem },mimetype: 'audio/mp4', quoted : data.message, ptt: true })
+					//onlydev.sendMessage(from,media,audio,{contextInfo: { mentionedJid: mem },quoted: mek, ptt : true })
+					/*onlydev.sendMessage(from, options, text)*/
+				break
                     /*STICKER*/
                 case 'sgif':
                 case 'sticker':
@@ -1607,7 +1663,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     res = await axios.get(`${configs.apiUrl}/api/pinimg?apikey=${configs.zeksKey}&q=${data.body}`)
                     n = res.data.data
                     image = n[Math.floor(Math.random() * n.length)]
-                    Client.sendFileFromUrl(from, image, 'p.jpg', `nih kak`, message)
+                    fakethumb(image, 'nih kak')
                     } catch {
                         data.reply(`error`)
                     }
@@ -1723,7 +1779,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                 case 'tes':
                     data.reply('auto upt')
                     break
-                case 'return':
+                case '':
 		        case 'eval':
                     if(!data.isOwner) return data.reply(mess.ownerOnly)
                     try {
@@ -1733,6 +1789,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     }
                     break
 		        case 'term':
+				case '>':
                     if(!data.isOwner) return data.reply(mess.ownerOnly)
 					exec(data.body, (err, stdout) => {	
 				    if (err) return data.reply(err.toString())
@@ -1786,7 +1843,84 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
             	*/
             switch(idStick) {
                 case '2.453746655066493e+123':
-                    datas.reply(menu(configs.prefix == 'multi' ? '/' : configs.prefix))
+                    sec = []
+          sec.push({
+            "rows": [
+              {
+                "title": "List Menu",
+                "description": "", 
+                "rowId": `${data.prefix}listmenu`
+              }, 
+              {
+                "title": "Group Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}gmenu`
+              }, 
+              {
+                "title": "Download Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}dwmenu`
+              }, 
+              {
+                "title": "Sticker Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}smenu`
+              }, 
+              {
+                "title": "Education Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}emenu`
+              }, 
+              {
+                "title": "Searching Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}srcmenu`
+              }, 
+              {
+                "title": "Primbon Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}pmenu`
+              }, 
+              {
+                "title": "Random Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}rnmenu`
+              }, 
+              {
+                "title": "Text Maker", 
+                "description": "", 
+                "rowId": `${data.prefix}txmaker`
+              }, 
+              {
+                "title": "Image Maker", 
+                "description": "", 
+                "rowId": `${data.prefix}imgmaker`
+              }, 
+              {
+                "title": "Other Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}othmenu`
+              }, 
+              {
+                "title": "Info", 
+                "description": "", 
+                "rowId": `${data.prefix}info`
+              }, 
+              {
+                "title": "Owner Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}ownerm`
+              }
+              ], title: `Pilih Satu ya kak`
+              })
+          	let po = client.prepareMessageFromContent(data.from, {
+				  "listMessage":{
+                  "title": `MENU J-BOT`,
+                  "description": `${ucapanWaktu} kak *${data.pushname}*`,
+                  "buttonText": "MENU!",
+                  "listType": "SINGLE_SELECT",
+                  "sections": sec}}, {}) 
+            client.relayWAMessage(po, {waitForAck: true})
                     break
                 case '1.415045466145215e+123':
                     if(datas.isQuotedImage || datas.isQuotedVideo) {
