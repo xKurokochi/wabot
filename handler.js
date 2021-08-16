@@ -1060,8 +1060,8 @@ let yo = client.user
     
     teksny = `${ucapanWaktu} kak @${num.split("@")[0]}, Semoga harimu menyenangkan
 
-Jam : ${time2}
-Tanggal : ${date}
+Follow IG 
+https://Instagram.com/akmalz.real
 
 Note : Semua fitur free ya, ga semua fitur work krn sy noob :)
 `
