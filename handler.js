@@ -37,43 +37,6 @@ const { text, extendedText, contact, location, liveLocation, image, video, stick
 
 module.exports = handle = (client, Client) => {
     try {
-    	
-/*————————— [ FUNCTION ] —————————*/
-
-    	const formater1 = (seconds) => {
-                    const pad1 = (s) => {
-                        return (s < 10 ? '0' : '') + s
-                    }
-                    const hrs = Math.floor(seconds / (60 * 60))
-                    const mins = Math.floor(seconds % (60 * 60) / 60)
-                    const secs = Math.floor(seconds % 60)
-                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
-                }
-            const uptime1 = process.uptime()
-            const timestampi = speed();
-            const latensip = speed() - timestampi
-    
-const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-if(time2 < "23:59:00"){
-var ucapanWaktu = 'Selamat malam'
-                                        }
-if(time2 < "20:00:00"){
-var ucapanWaktu = 'Selamat petang'
-                                         }
-if(time2 < "18:00:00"){
-var ucapanWaktu = 'Selamat sore'
-                                         }
-if(time2 < "15:00:00"){
-var ucapanWaktu = 'Selamat siang'
-                                         }
-if(time2 < "11:00:00"){
-var ucapanWaktu = 'Selamat pagi'
-                                         }
-if(time2 < "03:45:00"){
-var ucapanWaktu = 'Selamat malam'
-										}
-        
-/*————————— [ FUNCTION ]—————————*/
 
     	/*MENU*/
     	Client.cmd.on('listmsg', async(data) => {
@@ -1057,7 +1020,39 @@ Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}own
                 case 'help':
 num = `${sender.split("@")[0]}@s.whatsapp.net`
 let yo = client.user
+const formater1 = (seconds) => {
+                    const pad1 = (s) => {
+                        return (s < 10 ? '0' : '') + s
+                    }
+                    const hrs = Math.floor(seconds / (60 * 60))
+                    const mins = Math.floor(seconds % (60 * 60) / 60)
+                    const secs = Math.floor(seconds % 60)
+                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
+                }
+            const uptime1 = process.uptime()
+            const timestampi = speed();
+            const latensip = speed() - timestampi
     
+const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+if(time2 < "23:59:00"){
+var ucapanWaktu = 'Selamat malam'
+                                        }
+if(time2 < "20:00:00"){
+var ucapanWaktu = 'Selamat petang'
+                                         }
+if(time2 < "18:00:00"){
+var ucapanWaktu = 'Selamat sore'
+                                         }
+if(time2 < "15:00:00"){
+var ucapanWaktu = 'Selamat siang'
+                                         }
+if(time2 < "11:00:00"){
+var ucapanWaktu = 'Selamat pagi'
+                                         }
+if(time2 < "03:45:00"){
+var ucapanWaktu = 'Selamat malam'
+										}
+
     teksny = `${ucapanWaktu} kak @${num.split("@")[0]}, Semoga harimu menyenangkan
 
 Follow IG 
