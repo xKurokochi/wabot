@@ -35,10 +35,6 @@ const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
 const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 
-const isMedia = (type === 'imageMessage' || type === 'videoMessage')
-const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
-const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
-
 module.exports = handle = (client, Client) => {
     try {
     	/*MENU*/
@@ -1146,16 +1142,6 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     let zz = await client.prepareMessageFromContent(from, {buttonsMessage: buttonMessage}, {})
                 	client.relayWAMessage(zz, {waitForAck: true})     
                     break
-					case 'setfakeimg':
-        	if ((isMedia && !message.message.videoMessage || isQuotedImage || isQuotedSticker) && data.args.length == 0) {
-          	boij = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(message).replace('quotedM','m')).message.extendedTextMessage.contextInfo : message
-			delb = await client.downloadMediaMessage(boij)
-			fs.writeFileSync(`./media/fake.jpeg`, delb)
-			data.reply('Sukses')
-        	} else {
-            data.reply(`Kirim gambar dengan caption ${data.prefix}sethumb`)
-          	}
-			break
                     /*STICKER*/
                 case 'sgif':
                 case 'sticker':
@@ -1621,7 +1607,7 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                     res = await axios.get(`${configs.apiUrl}/api/pinimg?apikey=${configs.zeksKey}&q=${data.body}`)
                     n = res.data.data
                     image = n[Math.floor(Math.random() * n.length)]
-                    Client.sendFileFromUrl(from, image, 'p.jpg', `*Hasil pecarian* : ${data.body}`, message)
+                    Client.sendFileFromUrl(from, image, 'p.jpg', `nih kak`, message)
                     } catch {
                         data.reply(`error`)
                     }
