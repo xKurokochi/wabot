@@ -1833,67 +1833,67 @@ var ucapanWaktu = 'Selamat malam'
               {
                 "title": "List Menu",
                 "description": "", 
-                "rowId": `${data.prefix}listmenu`
+                "rowId": `#listmenu`
               }, 
               {
                 "title": "Group Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}gmenu`
+                "rowId": `#gmenu`
               }, 
               {
                 "title": "Download Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}dwmenu`
+                "rowId": `#dwmenu`
               }, 
               {
                 "title": "Sticker Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}smenu`
+                "rowId": `#smenu`
               }, 
               {
                 "title": "Education Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}emenu`
+                "rowId": `#emenu`
               }, 
               {
                 "title": "Searching Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}srcmenu`
+                "rowId": `#srcmenu`
               }, 
               {
                 "title": "Primbon Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}pmenu`
+                "rowId": `#pmenu`
               }, 
               {
                 "title": "Random Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}rnmenu`
+                "rowId": `#rnmenu`
               }, 
               {
                 "title": "Text Maker", 
                 "description": "", 
-                "rowId": `${data.prefix}txmaker`
+                "rowId": `#txmaker`
               }, 
               {
                 "title": "Image Maker", 
                 "description": "", 
-                "rowId": `${data.prefix}imgmaker`
+                "rowId": `#imgmaker`
               }, 
               {
                 "title": "Other Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}othmenu`
+                "rowId": `#othmenu`
               }, 
               {
                 "title": "Info", 
                 "description": "", 
-                "rowId": `${data.prefix}info`
+                "rowId": `#infom`
               }, 
               {
                 "title": "Owner Menu", 
                 "description": "", 
-                "rowId": `${data.prefix}ownerm`
+                "rowId": `#ownerm`
               }
               ], title: `Pilih Satu ya kak`
               })
