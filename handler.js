@@ -74,7 +74,7 @@ var ucapanWaktu = 'Selamat malam'
 										}
         
 const fakethumb = (teks, yes) => {
-client.sendMessage(data.from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: data.message, caption:yes})
+client.sendMessage(data.from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: message, caption:yes})
          }
 /*————————— [ FUNCTION ]—————————*/
 
@@ -334,16 +334,7 @@ client.sendMessage(data.from, teks, image, {thumbnail:fs.readFileSync('./media/f
                 Client.sendFileFromUrl(data.from, getresult.data.result[i].url, `ig.${getresult.data.result[i].type}`, `「 INSTAGRAM 」\n\n*Username*: ${getresult.data.owner}\n*Caption*: ${getresult.data.caption}`, data.message);
             }
         })
-        Client.cmd.on('nhentai', async (data) => {
-        	if(isLimit(data.sender)) return data.reply(mess.limit)
-            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}nhentai [ kode ]*\nContoh : ${data.prefix}nhentai 19283`)
-            data.reply(mess.wait)
-        	hentong = await axios.get(`https://zxbott.herokuapp.com/nhentai?code=${data.body}`)
-        	y = hentong.data
-        	teks = `English : ${y.english}\nJapanese : ${y.japanese}\nLatin : ${y.pretty}\nHalaman : ${y.totalpage}`
-        	data.reply(teks)
-        	Client.sendFileFromUrl(data.from, y.pdf, `${y.pretty}.pdf`, ``, data.message)
-        })
+        
         Client.cmd.on('igstory', async (data) => {
             try {
                 if(isLimit(data.sender)) return data.reply(mess.limit)
