@@ -73,9 +73,6 @@ if(time2 < "03:45:00"){
 var ucapanWaktu = 'Selamat malam'
 										}
         
-const fakethumb = (teks, yes) => {
-client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.jpeg'),quoted: message, caption:yes})
-         }
 /*————————— [ FUNCTION ]—————————*/
 
     	/*MENU*/
@@ -252,7 +249,9 @@ client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.j
                      data.reply('' + e) 
                    }
          })
-        /*DOWNLOADER*/
+        /*DOWNLOADER
+Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
+*/
         Client.cmd.on('ytmp4', async (data) => {
             try {
                 if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -263,7 +262,7 @@ client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.j
                 ytm = res.data.result
                 teks = `*Data berhasil didapatkan!*\n\n*Judul* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : ${ytm.ext}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Data Berhasil Didapatkan!*\n\n*Title* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : mp4\n*Link* : ${ytm.link}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`, data.message)
-                fakethumb(ytm.thumb, teks)
+                Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
             } catch {
                 data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
@@ -279,7 +278,7 @@ client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.j
                 ytm = res.data.result
                 teks = `*Data berhasil didapatkan!*\n\n*Judul* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : ${ytm.ext}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 if(Number(ytm.size.split(' MB')[0]) >= 50.00) return Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', `*Data Berhasil Didapatkan!*\n\n*Title* : ${ytm.title}\n*Ukuran* : ${ytm.size}\n*Kualitas* : ${ytm.quality}\n*Ext* : mp3\n*Link* : ${ytm.link}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`, data.message)
-                fakethumb(ytm.thumb, teks)
+                Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp3`, ``, data.message)
             } catch {
                 data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
@@ -385,12 +384,12 @@ client.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/fake.j
         Client.cmd.on('meme', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/memeindo?apikey=${configs.zeksKey}`)
-            fakethumb(res.data.result, '')
+            Client.sendFileFromUrl(data.from, `${res.data.result}`, 'p.jpg', ``, data.message)
         })
         Client.cmd.on('darkjoke', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/darkjokes?apikey=${configs.zeksKey}`)
-            fakethumb(res.data.result, 'tobat bro')
+            Client.sendFileFromUrl(data.from, `${res.data.result}`, 'p.jpg', ``, data.message)
         })
         Client.cmd.on('nickepep', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -1615,7 +1614,7 @@ case 'audtag':
                     res = await axios.get(`${configs.apiUrl}/api/pinimg?apikey=${configs.zeksKey}&q=${data.body}`)
                     n = res.data.data
                     image = n[Math.floor(Math.random() * n.length)]
-                    fakethumb(image, 'nih kak')
+                    Client.sendFileFromUrl(from, image, 'p.jpg', `*Hasil pecarian* : ${data.body}`, message)
                     } catch {
                         data.reply(`error`)
                     }
