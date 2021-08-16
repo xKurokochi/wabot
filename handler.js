@@ -1800,7 +1800,7 @@ case 'audtag':
                 pushname,
                 t
             } = datas
-            //console.log(`ID STICKER: ${idStick}`) //digunakan untuk mendapatkan id sticker
+            console.log(`ID STICKER: ${idStick}`) //digunakan untuk mendapatkan id sticker
             /*	Cara bikin stickercmd 
                 -ambil id sticker lewat console.log
             	-id sticker nya dibuat case 
@@ -1897,7 +1897,7 @@ var ucapanWaktu = 'Selamat malam'
               }
               ], title: `Pilih Satu ya kak`
               })
-          	let po = client.prepareMessageFromContent(data.from, {
+          	let po = client.prepareMessageFromContent(from, {
 				  "listMessage":{
                   "title": `MENU J-BOT`,
                   "description": `${ucapanWaktu} kak *${data.pushname}*`,
