@@ -583,8 +583,11 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
         })
         Client.cmd.on('infobot', async (data) => {
 		data.reply(`Bot ini di buat dengan bahasa pemrograman Node.js / JavaScript
+
 Original source code bot : https://github.com/justpiple/whatsapp-bot
-Source code used : https://github.com/Dvnz99/wabot
+
+Source code yang dipakai : https://github.com/Dvnz99/wabot
+
 Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}owner`)
 		})
         /*OWNER*/
