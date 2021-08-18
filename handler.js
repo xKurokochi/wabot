@@ -56,7 +56,7 @@ var ucapanWaktu = 'Selamat siang'
 if(time < "11:00:00"){
 var ucapanWaktu = 'Selamat pagi'
                                          }
-if(time < "03:45:00"){
+if(time < "03:30:00"){
 var ucapanWaktu = 'Selamat malam'
 										}
              sec = []
@@ -111,6 +111,16 @@ var ucapanWaktu = 'Selamat malam'
                 "title": "Image Maker", 
                 "description": "", 
                 "rowId": `${data.prefix}imgmaker`
+              }, 
+              {
+                "title": "Asupan Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}asupan`
+              }, 
+              {
+                "title": "Random Image", 
+                "description": "", 
+                "rowId": `${data.prefix}randomimg`
               }, 
               {
                 "title": "Other Menu", 
@@ -346,6 +356,178 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
             }
         })
         /*RANDOM*/
+        Client.cmd.on('asupan', async (data) => {
+            if (isLimit(data.sender)) return data.reply(mess.limit) 
+            if(data.args[0].toLowerCase() == 'ukhty') {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanukhty?apikey=${configs.uhykey}`, 'ukhty.mp4', `Nih Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == 'santuy') {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupan?apikey=${configs.uhykey}`, 'santuy.mp4', `Nih Kak Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == '+62') {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupan?apikey=${configs.uhykey}`, '+62.mp4',`Nih Kak Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == 'bocil')  {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanbocil?apikey=${configs.uhykey}`, 'bocil.mp4', `Nih Kak Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == 'rikagusriani') {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanrikagusriani?apikey=${configs.uhykey}`, 'rika.mp4', `Nih Kak Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == 'ghea') {
+              Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanghea?apikey=${configs.uhykey}`, 'ghea.mp4', `Nih Kak Asupannya`, data.message)
+            } else if(data.args[0].toLowerCase() == 'chika') {
+              Client.sendFileFromUrl(data.from, 'https://pencarikode.xyz/api/chika?apikey=pais', 'chika.mp4', `Nih Kak Asupannya`, data.message) 
+            } else if(data.args[0].toLowerCase() == 'random') {
+              Client.sendFileFromUrl(data.from, 'https://pencarikode.xyz/api/asupan?apikey=pais', 'random.mp4', 'Nih', data.message)
+            } else {
+              		let po = client.prepareMessageFromContent(data.from, {
+					"listMessage":{
+                  "title": `ASUPAN MENU`,
+                  "description": `Menu Asupan nya kak ${data.pushname}`,
+                  "buttonText": "Klik Disini",
+                  "listType": "SINGLE_SELECT",
+                  "sections": [
+                     {
+                        "rows": [
+                           {
+                              "title": "+62",
+                              "rowId": `${data.prefix + data.command} +62`
+                           },
+						   {
+                              "title": "chika",
+                              "rowId": `${data.prefix + data.command} chika`
+                           }, 
+                           {
+                             "title": " ghea", 
+                             "rowId": `$${data.prefix + data.command} ghea`
+                           }, 
+                           {
+                             "title": " ukhty", 
+                             "rowId": `${data.prefix + data.command} ukhty`
+                           }, 
+                           {
+                             "title": " bocil", 
+                             "rowId": `${data.prefix + data.command} bocil`
+                           }, 
+                           {
+                             "title": " santuy", 
+                             "rowId": `${data.prefix + data. command} santuy`
+                           }, 
+                           {
+                             "title": " random", 
+                             "rowId": `${data.prefix + data.command} random`
+                           }, 
+                           {
+                             "title": " rikagusriani", 
+                             "rowId": `${data.prefix + data.command} rikagusriani`
+                           }
+                        ], title: `Awas horny`
+                     }]}}, {}) 
+            client.relayWAMessage(po, {waitForAck: true})
+            }
+        })
+        Client.cmd.on('randomimg', async (data) => {
+            if (isLimit(data.sender)) return data.reply(mess.limit) 
+            if(data.args[0].toLowerCase() == 'cecan') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/cecan?apikey=${configs.lolkey}`, 'cecan.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'cogan') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/cogan?apikey=${configs.lolkey}`, 'cogan.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'bts') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/bts?apikey=${configs.lolkey}`, 'bts.jpeg','Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'exo')  {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/exo?apikey=${configs.lolkey}`, 'exo.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'estetik') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/estetic?apikey=${configs.lolkey}`, 'estetik.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'blackpink') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/blackpink?apikey=${configs.lolkey}`, 'bpink.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'waifu') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/waifu?apikey=${configs.lolkey}`, 'waifu.jpeg', 'Nih Ramdom Imagenya', data.message) 
+            } else if(data.args[0].toLowerCase() == 'husbu') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/husbu?apikey=${configs.lolkey}`, 'husbu.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'loli') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/loli?apikey=${configs.lolkey}`, 'loli.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'neko') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/neko?apikey=${configs.lolkey}`, 'neko.jpeg','Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'elf')  {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/elf?apikey=${configs.lolkey}`, 'elf.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'shota') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/shota?apikey=${configs.lolkey}`, 'shota.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'sadgirl') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/sadgirl?apikey=${configs.lolkey}`, 'sadgirl.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else if(data.args[0].toLowerCase() == 'nimart') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/art?apikey=${configs.lolkey}`, 'fanart.jpeg', 'Nih Ramdom Imagenya', data.message) 
+            } else if(data.args[0].toLowerCase() == 'wallnime') {
+              Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/wallnime?apikey=${configs.lolkey}`, 'wallnime.jpeg', 'Nih Ramdom Imagenya', data.message)
+            } else {
+              		let po = client.prepareMessageFromContent(data.from, {
+					"listMessage":{
+                  "title": "RANDOM IMAGE",
+                  "description": `Menu Random Image Permintaan Dari ${data.pushname}`,
+                  "buttonText": "Klik Disini",
+                  "listType": "SINGLE_SELECT",
+                  "sections": [
+                     {
+                        "rows": [
+                           {
+                              "title": "cecan",
+                              "rowId": `${data.prefix + data.command} cecan`
+                           },
+						   {
+                              "title": "cogan",
+                              "rowId": `${data.prefix + data.command} cogan`
+                           }, 
+                           {
+                             "title": "bts", 
+                             "rowId": `$${data.prefix + data.command} bts`
+                           }, 
+                           {
+                             "title": " exo", 
+                             "rowId": `${data.prefix + data.command} exo`
+                           }, 
+                           {
+                             "title": " estetik", 
+                             "rowId": `${data.prefix + data.command} estetik`
+                           }, 
+                           {
+                             "title": " blackpink", 
+                             "rowId": `${data.prefix + data. command} blackpink`
+                           }, 
+                           {
+                             "title": " waifu", 
+                             "rowId": `${data.prefix + data.command} waifu`
+                           }, 
+                           {
+                             "title": " husbu", 
+                             "rowId": `${data.prefix + data.command} husbu`
+                           },
+						   {
+                              "title": " loli",
+                              "rowId": `${data.prefix + data.command} loli`
+                           }, 
+                           {
+                             "title": " neko", 
+                             "rowId": `$${data.prefix + data.command} neko`
+                           }, 
+                           {
+                             "title": " elf", 
+                             "rowId": `${data.prefix + data.command} elf`
+                           }, 
+                           {
+                             "title": " shota", 
+                             "rowId": `${data.prefix + data.command} shota`
+                           }, 
+                           {
+                             "title": " sadgirl", 
+                             "rowId": `${data.prefix + data. command} sadgirl`
+                           }, 
+                           {
+                             "title": " nime fanart", 
+                             "rowId": `${data.prefix + data.command} nimeart`
+                           }, 
+                           {
+                             "title": " wallpaper anime", 
+                             "rowId": `${data.prefix + data.command} wallnime`
+                           }
+                        ], title: `Pilih satu ya kak`
+                     }]}}, {}) 
+            client.relayWAMessage(po, {waitForAck: true})
+            }
+        })
         Client.cmd.on('fml', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
             res = await axios.get(`${configs.apiUrl}/api/fml?apikey=${configs.zeksKey}`)
@@ -1068,7 +1250,7 @@ var ucapanWaktu = 'Selamat siang'
 if(time2 < "11:00:00"){
 var ucapanWaktu = 'Selamat pagi'
                                          }
-if(time2 < "03:45:00"){
+if(time2 < "03:30:00"){
 var ucapanWaktu = 'Selamat malam'
 										}
 
@@ -1824,7 +2006,7 @@ var ucapanWaktu = 'Selamat siang'
 if(time3 < "11:00:00"){
 var ucapanWaktu = 'Selamat pagi'
                                          }
-if(time3 < "03:45:00"){
+if(time3 < "03:30:00"){
 var ucapanWaktu = 'Selamat malam'
 										}
                     sec = []
@@ -1897,11 +2079,10 @@ var ucapanWaktu = 'Selamat malam'
               }
               ], title: `Pilih Satu ya kak`
               })
-              num = `${sender.split("@")[0]}@s.whatsapp.net`
           	let po = client.prepareMessageFromContent(from, {
 				  "listMessage":{
                   "title": `MENU J-BOT`,
-                  "description": `${ucapanWaktu} kak @${num.split("@")[0]}`,
+                  "description": `${ucapanWaktu} kak ${pushname}`,
                   "buttonText": "MENU!",
                   "listType": "SINGLE_SELECT",
                   "sections": sec}}, {}) 
