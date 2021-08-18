@@ -16,7 +16,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
 
-[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/justpiple/whatsapp-bot)
+[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
 
 ### Install ⬇️
@@ -35,6 +35,8 @@
 
 #### Change `config.json` 
 ##### Register in <b>[zeks.xyz](https://zeks.xyz)</b> to get apiKey then enter to zeksKey in `config.json`
+##### Register in <b>[api.xteam.xyz](https://api.xteam.xyz)</b> to get apiKey then enter to xkey in `config.json`
+##### Register in <b>[api.lolhuman.xyz](https://api.lolhuman.xyz)</b> to get apiKey then enter to lolkey in `config.json`
 ### Start ✅
 
 ```bash
