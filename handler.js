@@ -35,6 +35,10 @@ const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
 const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 
+/*
+
+*/
+
 module.exports = handle = (client, Client) => {
     try {
 
@@ -126,11 +130,6 @@ var ucapanWaktu = 'Selamat malam'
                 "title": "Other Menu", 
                 "description": "", 
                 "rowId": `${data.prefix}othmenu`
-              }, 
-              {
-                "title": "Info", 
-                "description": "", 
-                "rowId": `${data.prefix}infom`
               }, 
               {
                 "title": "Owner Menu", 
@@ -358,21 +357,21 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
         /*RANDOM*/
         Client.cmd.on('asupan', async (data) => {
             if (isLimit(data.sender)) return data.reply(mess.limit) 
-            if(data.args[0].toLowerCase() == 'ukhty') {
+            if(data.args[0].toLowerCase() == '1') {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanukhty?apikey=${configs.uhykey}`, 'ukhty.mp4', `Nih Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == 'santuy') {
+            } else if(data.args[0].toLowerCase() == '2') {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupan?apikey=${configs.uhykey}`, 'santuy.mp4', `Nih Kak Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == '+62') {
+            } else if(data.args[0].toLowerCase() == '3') {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupan?apikey=${configs.uhykey}`, '+62.mp4',`Nih Kak Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == 'bocil')  {
+            } else if(data.args[0].toLowerCase() == '4')  {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanbocil?apikey=${configs.uhykey}`, 'bocil.mp4', `Nih Kak Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == 'rikagusriani') {
+            } else if(data.args[0].toLowerCase() == '5') {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanrikagusriani?apikey=${configs.uhykey}`, 'rika.mp4', `Nih Kak Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == 'ghea') {
+            } else if(data.args[0].toLowerCase() == '6') {
               Client.sendFileFromUrl(data.from, `${configs.apiUhy}/api/asupan/asupanghea?apikey=${configs.uhykey}`, 'ghea.mp4', `Nih Kak Asupannya`, data.message)
-            } else if(data.args[0].toLowerCase() == 'chika') {
+            } else if(data.args[0].toLowerCase() == '7') {
               Client.sendFileFromUrl(data.from, 'https://pencarikode.xyz/api/chika?apikey=pais', 'chika.mp4', `Nih Kak Asupannya`, data.message) 
-            } else if(data.args[0].toLowerCase() == 'random') {
+            } else if(data.args[0].toLowerCase() == '8') {
               Client.sendFileFromUrl(data.from, 'https://pencarikode.xyz/api/asupan?apikey=pais', 'random.mp4', 'Nih', data.message)
             } else {
               		let po = client.prepareMessageFromContent(data.from, {
@@ -385,36 +384,44 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
                      {
                         "rows": [
                            {
-                              "title": "+62",
-                              "rowId": `${data.prefix + data.command} +62`
+                              "title": "1",
+                              "description": "Asupan Ukhty", 
+                              "rowId": `${data.prefix + data.command} 1`
                            },
 						   {
-                              "title": "chika",
-                              "rowId": `${data.prefix + data.command} chika`
+                              "title": "2",
+                              "description": "Asupan Santuy", 
+                              "rowId": `${data.prefix + data.command} 2`
                            }, 
                            {
-                             "title": " ghea", 
-                             "rowId": `$${data.prefix + data.command} ghea`
+                             "title": " 3", 
+                             "description": "Asupan +62", 
+                             "rowId": `$${data.prefix + data.command} 3`
                            }, 
                            {
-                             "title": " ukhty", 
-                             "rowId": `${data.prefix + data.command} ukhty`
+                             "title": " 4", 
+                             "description": "Asupan Bocil", 
+                             "rowId": `${data.prefix + data.command} 4`
                            }, 
                            {
-                             "title": " bocil", 
-                             "rowId": `${data.prefix + data.command} bocil`
+                             "title": " 5", 
+                             "description": "Asupan Rika Gusriani", 
+                             "rowId": `${data.prefix + data.command} 5`
                            }, 
                            {
-                             "title": " santuy", 
-                             "rowId": `${data.prefix + data. command} santuy`
+                             "title": " 6", 
+                             "description": "Asupan Ghea", 
+                             "rowId": `${data.prefix + data. command} 6`
                            }, 
                            {
-                             "title": " random", 
-                             "rowId": `${data.prefix + data.command} random`
+                             "title": " 7", 
+                             "description": "Asupan Chika", 
+                             "rowId": `${data.prefix + data.command} 7`
                            }, 
                            {
-                             "title": " rikagusriani", 
-                             "rowId": `${data.prefix + data.command} rikagusriani`
+                             "title": " 8", 
+                             "description": "Asupan Random", 
+                             "rowId": `${data.prefix + data.command} 8`
                            }
                         ], title: `Awas horny`
                      }]}}, {}) 
@@ -423,35 +430,35 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
         })
         Client.cmd.on('randomimg', async (data) => {
             if (isLimit(data.sender)) return data.reply(mess.limit) 
-            if(data.args[0].toLowerCase() == 'cecan') {
+            if(data.args[0].toLowerCase() == '1') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/cecan?apikey=${configs.lolkey}`, 'cecan.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'cogan') {
+            } else if(data.args[0].toLowerCase() == '2') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/cogan?apikey=${configs.lolkey}`, 'cogan.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'bts') {
+            } else if(data.args[0].toLowerCase() == '3') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/bts?apikey=${configs.lolkey}`, 'bts.jpeg','Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'exo')  {
+            } else if(data.args[0].toLowerCase() == '4')  {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/exo?apikey=${configs.lolkey}`, 'exo.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'estetik') {
+            } else if(data.args[0].toLowerCase() == '5') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/estetic?apikey=${configs.lolkey}`, 'estetik.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'blackpink') {
+            } else if(data.args[0].toLowerCase() == '6') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/blackpink?apikey=${configs.lolkey}`, 'bpink.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'waifu') {
+            } else if(data.args[0].toLowerCase() == '7') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/waifu?apikey=${configs.lolkey}`, 'waifu.jpeg', 'Nih Ramdom Imagenya', data.message) 
-            } else if(data.args[0].toLowerCase() == 'husbu') {
+            } else if(data.args[0].toLowerCase() == '8') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/husbu?apikey=${configs.lolkey}`, 'husbu.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'loli') {
+            } else if(data.args[0].toLowerCase() == '9') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/loli?apikey=${configs.lolkey}`, 'loli.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'neko') {
+            } else if(data.args[0].toLowerCase() == '10') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/neko?apikey=${configs.lolkey}`, 'neko.jpeg','Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'elf')  {
+            } else if(data.args[0].toLowerCase() == '11')  {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/elf?apikey=${configs.lolkey}`, 'elf.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'shota') {
+            } else if(data.args[0].toLowerCase() == '12') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/shota?apikey=${configs.lolkey}`, 'shota.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'sadgirl') {
+            } else if(data.args[0].toLowerCase() == '13') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/sadgirl?apikey=${configs.lolkey}`, 'sadgirl.jpeg', 'Nih Ramdom Imagenya', data.message)
-            } else if(data.args[0].toLowerCase() == 'nimart') {
+            } else if(data.args[0].toLowerCase() == '14') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/art?apikey=${configs.lolkey}`, 'fanart.jpeg', 'Nih Ramdom Imagenya', data.message) 
-            } else if(data.args[0].toLowerCase() == 'wallnime') {
+            } else if(data.args[0].toLowerCase() == '15') {
               Client.sendFileFromUrl(data.from, `${configs.apiLol}/api/random/wallnime?apikey=${configs.lolkey}`, 'wallnime.jpeg', 'Nih Ramdom Imagenya', data.message)
             } else {
               		let po = client.prepareMessageFromContent(data.from, {
@@ -464,64 +471,79 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
                      {
                         "rows": [
                            {
-                              "title": "cecan",
-                              "rowId": `${data.prefix + data.command} cecan`
+                              "title": "1",
+                              "description": "Random Image Cecan", 
+                              "rowId": `${data.prefix + data.command} 1`
                            },
 						   {
-                              "title": "cogan",
-                              "rowId": `${data.prefix + data.command} cogan`
+                              "title": "2",
+                              "description": "Random Image Cogan", 
+                              "rowId": `${data.prefix + data.command} 2`
                            }, 
                            {
-                             "title": "bts", 
-                             "rowId": `$${data.prefix + data.command} bts`
+                             "title": "3", 
+                             "description": "Random Image BTS", 
+                             "rowId": `$${data.prefix + data.command} 3`
                            }, 
                            {
-                             "title": " exo", 
-                             "rowId": `${data.prefix + data.command} exo`
+                             "title": " 4", 
+                             "description": "Random Image EXO", 
+                             "rowId": `${data.prefix + data.command} 4`
                            }, 
                            {
-                             "title": " estetik", 
-                             "rowId": `${data.prefix + data.command} estetik`
+                             "title": " 5", 
+                             "description": "Random Image Estetik", 
+                             "rowId": `${data.prefix + data.command} 5`
                            }, 
                            {
-                             "title": " blackpink", 
-                             "rowId": `${data.prefix + data. command} blackpink`
+                             "title": " 6", 
+                             "description": "Random Image Blackpink", 
+                             "rowId": `${data.prefix + data. command} 6`
                            }, 
                            {
-                             "title": " waifu", 
-                             "rowId": `${data.prefix + data.command} waifu`
+                             "title": " 7", 
+                             "description": "Random Image Waifu", 
+                             "rowId": `${data.prefix + data.command} 7`
                            }, 
                            {
-                             "title": " husbu", 
-                             "rowId": `${data.prefix + data.command} husbu`
+                             "title": " 8", 
+                             "description": "Random Image Husbu", 
+                             "rowId": `${data.prefix + data.command} 8`
                            },
 						   {
-                              "title": " loli",
-                              "rowId": `${data.prefix + data.command} loli`
+                              "title": " 9",
+                              "description": "Random Image Loli", 
+                              "rowId": `${data.prefix + data.command} 9`
                            }, 
                            {
-                             "title": " neko", 
-                             "rowId": `$${data.prefix + data.command} neko`
+                             "title": " 10", 
+                             "description": "Random Image Neko", 
+                             "rowId": `$${data.prefix + data.command} 10`
                            }, 
                            {
-                             "title": " elf", 
-                             "rowId": `${data.prefix + data.command} elf`
+                             "title": " 11", 
+                             "description": "Random Image Elf", 
+                             "rowId": `${data.prefix + data.command} 11`
                            }, 
                            {
-                             "title": " shota", 
-                             "rowId": `${data.prefix + data.command} shota`
+                             "title": " 12", 
+                             "description": "Random Image Shota", 
+                             "rowId": `${data.prefix + data.command} 12`
                            }, 
                            {
-                             "title": " sadgirl", 
-                             "rowId": `${data.prefix + data. command} sadgirl`
+                             "title": " 13", 
+                             "description": "Random Image Sad Girl", 
+                             "rowId": `${data.prefix + data. command} 13`
                            }, 
                            {
-                             "title": " nime fanart", 
-                             "rowId": `${data.prefix + data.command} nimeart`
+                             "title": " 14", 
+                             "description": "Random Image Anime Fanart", 
+                             "rowId": `${data.prefix + data.command} 14`
                            }, 
                            {
-                             "title": " wallpaper anime", 
-                             "rowId": `${data.prefix + data.command} wallnime`
+                             "title": " 15", 
+                             "description": "Random Image Wallpaper Anime", 
+                             "rowId": `${data.prefix + data.command} 15`
                            }
                         ], title: `Pilih satu ya kak`
                      }]}}, {}) 
@@ -581,7 +603,7 @@ Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, 
             if(limits <= 0) return data.reply("```" + `Limit anda sudah habis` + "```")
             data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
         })
-        Client.cmd.on('infobot', async (data) => {
+        Client.cmd.on('sourcecode', async (data) => {
 		data.reply(`Bot ini di buat dengan bahasa pemrograman Node.js / JavaScript
 
 Original source code bot : https://github.com/justpiple/whatsapp-bot
@@ -1302,16 +1324,16 @@ RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.ro
                                          "type": "RESPONSE"
                                      },
                                      {
-                                       buttonId: `${data.prefix}owner`,
+                                       buttonId: `${data.prefix}infom`,
                                        buttonText: {
-                                          displayText: "👤 OWNER"
+                                          displayText: "📄 INFO"
                                         },
                                          "type": "RESPONSE"
                                      },
                                      {
-                                       buttonId: `${data.prefix}infobot`,
+                                       buttonId: `${data.prefix}owner`,
                                        buttonText: {
-                                          displayText: "📄 SOURCE CODE"
+                                          displayText: "👤 OWNER"
                                         },
                                          "type": "RESPONSE"
                                      },
@@ -1691,6 +1713,16 @@ case 'audtag':
                         data.reply(`Maaf pencarian ${data.body} tidak ditemukan`)
                     }
                     break
+/*
+		case 'buggc':
+              try {
+              quotedText = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+              sendBug(from, `${quotedText}`)
+              } catch {
+              sendBug(from, `${q}`)
+}
+              break
+*/
                 case 'shopee':
                     try {
                         if(isLimit(data.sender)) return data.reply(mess.limit)
@@ -2070,11 +2102,6 @@ var ucapanWaktu = 'Selamat malam'
                 "title": "Other Menu", 
                 "description": "", 
                 "rowId": `#othmenu`
-              }, 
-              {
-                "title": "Info", 
-                "description": "", 
-                "rowId": `#infom`
               }, 
               {
                 "title": "Owner Menu", 
