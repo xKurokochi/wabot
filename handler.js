@@ -28,6 +28,7 @@ const {
 	othmenu,
 	info,
 	ownerm,
+        nimem,
 	ingfo,
 	mess
 } = require('./lib/text')
@@ -127,6 +128,11 @@ var ucapanWaktu = 'Selamat malam'
                 "rowId": `${data.prefix}randomimg`
               }, 
               {
+                "title": "Anime Menu", 
+                "description": "", 
+                "rowId": `${data.prefix}nimem`
+              }, 
+              {
                 "title": "Other Menu", 
                 "description": "", 
                 "rowId": `${data.prefix}othmenu`
@@ -211,6 +217,13 @@ var ucapanWaktu = 'Selamat malam'
                      data.reply('' + e) 
                    }
          })
+         Client.cmd.on('nimem', async(data) => {
+                   try {
+                    data.reply(nimem(data.prefix)) 
+                   } catch(e) {
+                     data.reply('' + e) 
+                   }
+         })
          Client.cmd.on('imgmaker', async(data) => {
                    try {
                     data.reply(imgmaker(data.prefix)) 
@@ -240,6 +253,154 @@ var ucapanWaktu = 'Selamat malam'
                      data.reply('' + e) 
                    }
          })
+/*ANIME*/
+        Client.cmd.on('waifu', async (data) => {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+			const res = await axios.get(`https://waifu.pics/api/sfw/waifu`)
+			const mediaMsg = await client.prepareMessageMedia(await getBuffer(res.data.url), 'imageMessage')
+            const buttonMessage = {
+			      contentText: 'Waifu',
+				  footerText: 'Press the button below to get a random waifu image',
+                        "contextInfo": {
+                              participant: data.sender,
+                              stanzaId: data.message.key.id,
+                              quotedMessage: data.message.message,
+							  },
+                              buttons: [
+                                {
+                                 buttonId: `${data.prefix}waifu`,
+                                 buttonText: {
+                                    displayText: `⏯️ MORE`
+                                  },
+                                  "type": "RESPONSE"
+                                },
+                                  ],
+                                   headerType: 4,
+                                ...mediaMsg 
+                                }
+            let zz = await client.prepareMessageFromContent(data.from, {buttonsMessage: buttonMessage}, {})
+            client.relayWAMessage(zz, {waitForAck: true}) 
+		})
+		Client.cmd.on('husbu', async (data) => {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+			const res = await axios.get(`https://zxbott.herokuapp.com/husbu`)
+			const mediaMsg = await client.prepareMessageMedia(await getBuffer(res.data.url), 'imageMessage')
+            const buttonMessage = {
+			      contentText: '*Husbu*\n' + res.data.name,
+				  footerText: 'Press the button below to get a random husbu image',
+                        "contextInfo": {
+                              participant: data.sender,
+                              stanzaId: data.message.key.id,
+                              quotedMessage: data.message.message,
+							  },
+                              buttons: [
+                                {
+                                 buttonId: `${data.prefix}husbu`,
+                                 buttonText: {
+                                    displayText: `⏯️ MORE`
+                                  },
+                                  "type": "RESPONSE"
+                                },
+                                  ],
+                                   headerType: 4,
+                                ...mediaMsg 
+                                }
+            let zz = await client.prepareMessageFromContent(data.from, {buttonsMessage: buttonMessage}, {})
+            client.relayWAMessage(zz, {waitForAck: true}) 
+		})
+		Client.cmd.on('neko', async (data) => {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+			const res = await axios.get(`https://waifu.pics/api/sfw/neko`)
+			const mediaMsg = await client.prepareMessageMedia(await getBuffer(res.data.url), 'imageMessage')
+            const buttonMessage = {
+			      contentText: 'Neko',
+				  footerText: 'Press the button below to get a random neko image',
+                        "contextInfo": {
+                              participant: data.sender,
+                              stanzaId: data.message.key.id,
+                              quotedMessage: data.message.message,
+							  },
+                              buttons: [
+                                {
+                                 buttonId: `${data.prefix}neko`,
+                                 buttonText: {
+                                    displayText: `⏯️ MORE`
+                                  },
+                                  "type": "RESPONSE"
+                                },
+                                  ],
+                                   headerType: 4,
+                                ...mediaMsg 
+                                }
+            let zz = await client.prepareMessageFromContent(data.from, {buttonsMessage: buttonMessage}, {})
+            client.relayWAMessage(zz, {waitForAck: true}) 
+		})
+		Client.cmd.on('hentai', async (data) => {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+			const res = await axios.get(`https://waifu.pics/api/nsfw/waifu`)
+			const mediaMsg = await client.prepareMessageMedia(await getBuffer(res.data.url), 'imageMessage')
+            const buttonMessage = {
+			      contentText: 'Hentai',
+				  footerText: 'Press the button below to get a random hentai image',
+                        "contextInfo": {
+                              participant: data.sender,
+                              stanzaId: data.message.key.id,
+                              quotedMessage: data.message.message,
+							  },
+                              buttons: [
+                                {
+                                 buttonId: `${data.prefix}hentai`,
+                                 buttonText: {
+                                    displayText: `⏯️ MORE`
+                                  },
+                                  "type": "RESPONSE"
+                                },
+                                  ],
+                                   headerType: 4,
+                                ...mediaMsg 
+                                }
+            let zz = await client.prepareMessageFromContent(data.from, {buttonsMessage: buttonMessage}, {})
+            client.relayWAMessage(zz, {waitForAck: true}) 
+		})
+        Client.cmd.on('anime', async (data) => {
+			try {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}anime [ query ]*\nContoh : ${data.prefix}anime naruto`)
+            data.reply(mess.wait)
+            const res = await fetch(`https://api.jikan.moe/v3/search/anime?q=${data.body}`)
+			const damta = await res.json()
+			const { title, synopsis, episodes, url, rated, score, image_url } = damta.results[0]
+			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Anime found!*\n\n*Title:* ${title}\n*Episodes:* ${episodes}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
+            } catch(e) {
+                data.reply('Anime not found')
+            }
+		})
+        Client.cmd.on('manga', async (data) => {
+			try {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}manga [ query ]*\nContoh : ${data.prefix}manga naruto`)
+            data.reply(mess.wait)
+            const res = await fetch(`https://api.jikan.moe/v3/search/manga?q=${data.body}`)
+			const damta = await res.json()
+			const { title, synopsis, chapters, url, rated, score, image_url } = damta.results[0]
+			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Manga found!*\n\n*Title:* ${title}\n*Chapters:* ${chapters}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
+            } catch(e) {
+                data.reply('Manga not found')
+            }
+		})
+        Client.cmd.on('chara', async (data) => {
+			try {
+			if(isLimit(data.sender)) return data.reply(mess.limit)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}chara [ query ]*\nContoh : ${data.prefix}manga naruto`)
+            data.reply(mess.wait)
+            const res = await fetch(`https://api.jikan.moe/v3/search/character?q=${data.body}`)
+			const damta = await res.json()
+			const { name, alternative_names, url, image_url } = damta.results[0]
+			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Character found!*\n\n*Name:* ${name}\n*Alternative names:* ${alternative_names}\n*URL*: ${url}`, data.message)
+            } catch(e) {
+                data.reply('Character not found')
+            }
+		})
         /*DOWNLOADER
 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
 */
