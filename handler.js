@@ -1402,6 +1402,18 @@ Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}own
                 t
             } = data
             switch(command.toLowerCase()) {
+                                case 'self':
+					if (!isOwner) return data.reply(mess.ownerOnly)
+					if (Client.self) return data.reply('Already Self Mode')
+					Client.self = true
+					data.reply('OK')
+				break
+				case 'public':
+					if (!isOwner) return data.reply(mess.ownerOnly)
+					if (!Client.self) return data.reply('Already Public Mode')
+					Client.self = false
+					data.reply('OK')
+				break
                 case 'command':
                 case 'cmd':
                 case 'menu':
