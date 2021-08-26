@@ -1,5 +1,5 @@
 {	
-	"prefix": "multi", /*Your Bot Prefix*/
+	"prefix": "multi", //Your Bot Prefix
 	"defaultSessionName": "bot", /*Session Name*/
 	"zeksKey": "apivinz", /*Your Zeks Key*/
 	"autoRead": false, /*auto read, you can change with true or false*/
