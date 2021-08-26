@@ -3,7 +3,7 @@
 	"defaultSessionName": "bot", /*Session Name*/
 	"zeksKey": "apivinz", /*Your Zeks Key*/
 	"autoRead": false, /*auto read, you can change with true or false*/
-	"maxLimit": 15, /*Limit Bot*
+	"maxLimit": 15, /*Limit Bot*/
 	"ownerList": ["628885960825@s.whatsapp.net","62857024477637@s.whatsapp.net"], 
 	"apiUrl": "https://api.zeks.me",
         "apiLol": "https://api.lolhuman.xyz",
