@@ -1,19 +1,19 @@
 {	
-	"prefix": "multi", 
-	"defaultSessionName": "bot", 
-	"zeksKey": "apivinz",
-	"autoRead": false,
-	"maxLimit": 15,
+	"prefix": "multi", /*Your Bot Prefix*/
+	"defaultSessionName": "bot", /*Session Name*/
+	"zeksKey": "apivinz", /*Your Zeks Key*/
+	"autoRead": false, /*auto read, you can change with true or false*/
+	"maxLimit": 15, /*Limit Bot*
 	"ownerList": ["628885960825@s.whatsapp.net","62857024477637@s.whatsapp.net"], 
 	"apiUrl": "https://api.zeks.me",
         "apiLol": "https://api.lolhuman.xyz",
         "apiUhy": "https://dapuhy-api.herokuapp.com",
         "imgUrl": "https://i.ibb.co/c80cZ3Y/pp-biodata.jpg",
-	"botname": "J-BOT", 
-	"xkey": "your_key", 
+	"botname": "J-BOT", /*Your Bot Name*/
+	"xkey": "your_key", /*Your xteam apikey*/
         "eztykey": "eztyb",
-        "lolkey": "your_key",
-        "uhykey": "BryanRfly",
-	"pack": "Akmalz Ganteng",
-	"author": "08885960825"
+        "lolkey": "your_key", /*Your Lolhuman apikey*/
+        "uhykey": "BryanRfly", /*Your Dapauhy apikey*/
+	"pack": "Akmalz Ganteng", /*Pack Sticker Name*/
+	"author": "08885960825" /*Author Sticker Name*/
 }
