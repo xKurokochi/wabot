@@ -29,13 +29,13 @@
 
 ### Install ⬇️
 
-```bash
-> git clone https://github.com/dvnz99/wabot/
+```js
+> git clone https:\/\/github.com/dvnz99/wabot/
 > cd wabot
 > npm i
 ```
 ### For termux users before running the above command write this command
-```bash
+```js
 > apt-get update
 > apt-get upgrade
 > apt-get install -y nodejs git
