@@ -14,7 +14,7 @@
  
 </div>
 
-### New Update
+## New Update
 ```js
 > Button Location (Top Request)
 > Husbu
@@ -87,7 +87,7 @@ after running it you need to scan the qr
 [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
 
-### How To Get Apikey
+## How To Get Apikey
 * Change `config.json` 
 
 * Register in <b>[zeks.me](https://zeks.me)</b> to get apiKey then enter to zeksKey in `config.json`
@@ -99,8 +99,8 @@ after running it you need to scan the qr
 * Register in <b>[dapuhy-api](https://dapuhy-api.herokuapp.com)</b> to get apiKey then enter to uhykey in `config.json`
 
 * Start ✅
-#### Session name and options is optional
-### Contact me
+## Session name and options is optional
+## Contact me
 
 - [TELEGRAM](https://t.me/justpiple)
 - [WHATSAPP](https://wa.me/message/IZ5ZIVGIQL2NJ1)
