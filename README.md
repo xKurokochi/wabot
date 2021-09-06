@@ -78,8 +78,9 @@ for pm2 :
 
 after running it you need to scan the qr
 
-### For termux users before running the above command write this command
+## For termux users before running the above command write this command
 * This repository does not support termux 🙏
+* but you can use heroku or replit
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
 
