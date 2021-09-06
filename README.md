@@ -51,7 +51,7 @@ Install the dependencies:
 ```
 
 ### Usage
-* 1. run the Whatsapp bot
+**1. run the Whatsapp bot**
 
 ```bash
 > npm start
@@ -64,7 +64,7 @@ or
 > pm2 monit
 ```
 
-2. stop the Whatsapp bot
+**2. stop the Whatsapp bot**
 
 for npm :
 ```bash
