@@ -14,10 +14,6 @@
  
 </div>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
-
-[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
-
 ### New Update
 ```js
 > Button Location (Top Request)
@@ -37,11 +33,12 @@
 > npm i
 ```
 ### For termux users before running the above command write this command
-```js
-> apt-get update
-> apt-get upgrade
-> apt-get install -y nodejs git
-```
+* This repository does not support termux 🙏
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
+
+[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
+
 
 ### How To Get Apikey
 * Change `config.json` 
