@@ -41,7 +41,7 @@
 > apt-get install -y nodejs git
 ```
 
-### Config
+### How To Get Apikey
 * Change `config.json` 
 
 * Register in <b>[zeks.me](https://zeks.me)</b> to get apiKey then enter to zeksKey in `config.json`
