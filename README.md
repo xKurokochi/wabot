@@ -25,13 +25,58 @@
 > Random Image
 ```
 
-### Install ⬇️
+## Install ⬇️
+### FFMPEG
+- [DOWNLOAD](https://ffmpeg.org/)
+- [TUTORIAL](https://youtu.be/04Gf6TEnmjk)
 
-```js
-> git clone https://github.com/dvnz99/wabot/
+### IMAGEMAGICK
+- [DOWNLOAD](https://imagemagick.org/script/download.php)
+Note : If you want to work, check the column 1,2,3,5,6
+
+### Install
+Clone this project
+
+```bash
+> git clone https://github.com/dvnz99/wabot
 > cd wabot
-> npm i
 ```
+
+Install the dependencies:
+
+```bash
+> npm install
+> npm install -g sharp
+> npm install -g pm2
+```
+
+### Usage
+* 1. run the Whatsapp bot
+
+```bash
+> npm start
+or 
+> node .
+```
+or
+```bash
+> pm2 start .
+> pm2 monit
+```
+
+2. stop the Whatsapp bot
+
+for npm :
+```bash
+> ctrl + c
+```
+for pm2 :
+```bash
+> pm2 stop
+```
+
+after running it you need to scan the qr
+
 ### For termux users before running the above command write this command
 * This repository does not support termux 🙏
 
