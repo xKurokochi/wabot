@@ -25,7 +25,7 @@
 > Random Image
 ```
 
-# Install For VPS/RDP/WINDOWS ⬇️
+# Install For Vps/Rdp/Windows
 
 ### FFMPEG
 - [DOWNLOAD](https://ffmpeg.org/)
