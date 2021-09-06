@@ -18,7 +18,7 @@
 
 [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
-### Update 
+### New Update
 ```js
 > Button Location (Top Request)
 > Husbu
@@ -30,7 +30,7 @@
 ### Install ⬇️
 
 ```js
-> git clone https:\/\/github.com/dvnz99/wabot/
+> git clone https://github.com/dvnz99/wabot/
 > cd wabot
 > npm i
 ```
@@ -60,7 +60,7 @@ after start it you need to scan the qr
 ### Contact me
 
 - [TELEGRAM](https://t.me/justpiple)
-- [WHATSAPP](http://wa.me/62813309603730)
+- [WHATSAPP](https://wa.me/message/IZ5ZIVGIQL2NJ1)
 - [GROUP CHAT WHATSAPP](https://chat.whatsapp.com/EV2o7Y4C2XNDT5AAQPZjqt)
 
 
