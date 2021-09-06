@@ -18,6 +18,10 @@
 
 [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
+### Update 
+```js
+> Button Location
+```
 
 ### Install ⬇️
 
