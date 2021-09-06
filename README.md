@@ -21,6 +21,7 @@
 ### Update 
 ```js
 > Button Location (Top Request)
+> Neko
 > Husbu
 > Hentai
 > Self/Public
