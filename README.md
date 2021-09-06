@@ -14,7 +14,7 @@
  
 </div>
 
-## New Update
+# New Update
 ```js
 > Button Location (Top Request)
 > Husbu
@@ -25,7 +25,7 @@
 > Random Image
 ```
 
-## Install For VPS/RDP/WINDOWS ⬇️
+# Install For VPS/RDP/WINDOWS ⬇️
 
 ### FFMPEG
 - [DOWNLOAD](https://ffmpeg.org/)
@@ -78,7 +78,7 @@ for pm2 :
 
 after running it you need to scan the qr
 
-## For termux users before running the above command write this command
+# For termux users before running the above command write this command
 * This repository does not support termux 🙏
 * but you can use heroku or replit
 
@@ -87,7 +87,7 @@ after running it you need to scan the qr
 [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
 
-## How To Get Apikey
+# How To Get Apikey
 * Change `config.json` 
 
 * Register in <b>[zeks.me](https://zeks.me)</b> to get apiKey then enter to zeksKey in `config.json`
