@@ -25,7 +25,8 @@
 > Random Image
 ```
 
-## Install ⬇️
+## Install For VPS/RDP/WINDOWS ⬇️
+
 ### FFMPEG
 - [DOWNLOAD](https://ffmpeg.org/)
 - [TUTORIAL](https://youtu.be/04Gf6TEnmjk)
@@ -97,15 +98,6 @@ after running it you need to scan the qr
 * Register in <b>[dapuhy-api](https://dapuhy-api.herokuapp.com)</b> to get apiKey then enter to uhykey in `config.json`
 
 * Start ✅
-
-```bash
-> npm start [session name] [--options]
-```
-`options`
- `port`
---port [port number]
-
-after start it you need to scan the qr
 #### Session name and options is optional
 ### Contact me
 
