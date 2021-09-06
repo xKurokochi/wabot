@@ -20,10 +20,10 @@
 
 ### Update 
 ```js
+> Button Location (Top Request)
 > Husbu
 > Hentai
 > Self/Public
-> Button Location
 ```
 
 ### Install ⬇️
