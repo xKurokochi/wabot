@@ -20,6 +20,9 @@
 
 ### Update 
 ```js
+> Husbu
+> Hentai
+> Self/Public
 > Button Location
 ```
 
