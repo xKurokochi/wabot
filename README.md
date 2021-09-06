@@ -44,7 +44,7 @@
 ### Config
 * Change `config.json` 
 
-* Register in <b>[zeks.xyz](https://zeks.xyz)</b> to get apiKey then enter to zeksKey in `config.json`
+* Register in <b>[zeks.me](https://zeks.me)</b> to get apiKey then enter to zeksKey in `config.json`
 
 * Register in <b>[api.xteam.xyz](https://api.xteam.xyz)</b> to get apiKey then enter to xkey in `config.json`
 
