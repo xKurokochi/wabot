@@ -25,6 +25,8 @@
 > Neko
 > Hentai
 > Self/Public
+> Asupan
+> Random Image
 ```
 
 ### Install ⬇️
