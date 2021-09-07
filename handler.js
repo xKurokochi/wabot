@@ -1422,81 +1422,101 @@ function _0x2778(_0xa93881,_0x38c242){const _0x300a3f=_0x4b06();return _0x2778=f
                 case 'cmd':
                 case 'menu':
                 case 'help':
+msp = '```'
 num = `${sender.split("@")[0]}@s.whatsapp.net`
-let yo = client.user
-const formater1 = (seconds) => {
-                    const pad1 = (s) => {
-                        return (s < 10 ? '0' : '') + s
-                    }
-                    const hrs = Math.floor(seconds / (60 * 60))
-                    const mins = Math.floor(seconds % (60 * 60) / 60)
-                    const secs = Math.floor(seconds % 60)
-                    return ' ' + pad1(hrs) + ' : ' + pad1(mins) + ' : ' + pad1(secs)
-                }
-            const uptime1 = process.uptime()
+
+const formater3 = function(seconds) {
+	seconds = Number(seconds);
+	var d = Math.floor(seconds / (3600 * 24));
+	var h = Math.floor(seconds % (3600 * 24) / 3600);
+	var m = Math.floor(seconds % 3600 / 60);
+	var s = Math.floor(seconds % 60);
+	var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+	var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+	var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+	var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+	return dDisplay + hDisplay + mDisplay + sDisplay;
+}
+            const uptime3 = process.uptime()
             const timestampi = speed();
             const latensip = speed() - timestampi
     
 const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
 if(time2 < "23:59:00"){
-var ucapanWaktu = 'Selamat malam'
+var ucapanWaktu = 'Good Evening'
                                         }
 if(time2 < "20:00:00"){
-var ucapanWaktu = 'Selamat petang'
+var ucapanWaktu = 'Good afternoon'
                                          }
 if(time2 < "18:00:00"){
-var ucapanWaktu = 'Selamat sore'
+var ucapanWaktu = 'Good afternoon'
                                          }
 if(time2 < "15:00:00"){
-var ucapanWaktu = 'Selamat siang'
+var ucapanWaktu = 'good afternoon'
                                          }
 if(time2 < "11:00:00"){
-var ucapanWaktu = 'Selamat pagi'
+var ucapanWaktu = 'Good morning'
                                          }
 if(time2 < "03:30:00"){
-var ucapanWaktu = 'Selamat malam'
+var ucapanWaktu = 'Good Evening'
 										}
 
-    teksny = `${ucapanWaktu} kak @${num.split("@")[0]}, Semoga harimu menyenangkan
+dataUsers = JSON.parse(fs.readFileSync('./lib/json/dataUser.json'))
+limits = configs.maxLimit - dataUsers[data.sender].limit
+limite = data.isOwner ? 'Unlimited' : `${limits || 30}/${configs.maxLimit}`
+prems = data.isOwner ? 'Owner' : 'User'
+inpo = client.getStatus(sender)
+let yo = client.user
 
-Follow IG 
-https://Instagram.com/akmalz.real
+teksny = `${ucapanWaktu} @${num.split("@")[0]}, Have a nice day
 
-Note : Semua fitur free ya, ga semua fitur work krn sy noob :)
-`
+${msp}USER INFO${msp}
+_Name : ${data.pushname}_
+_Bio : ${inpo}_
+_Status : ${prems}_
+_Limit : ${limite}_
 
-	footer = `*── 「 BOT STAT 」 ──*
-Bot Name : ${yo.name}
+${msp}BOT INFO${msp}
+_Bot Name : ${configs.botname}_
 Device : ${yo.phone.device_manufacturer}
 Model : ${yo.phone.device_model}
-WA Ver : ${yo.phone.wa_version}
-MCC : ${yo.phone.mcc}
-MNC : ${yo.phone.mnc}
 OS : ${yo.phone.os_version}
-Platform : ${os.platform()}
-Version : ${os.version}
-Host : ${os.hostname()}
-Runtime : ${formater1(uptime1)}
-Speed : ${latensip.toFixed(4)} Second
-RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+_WA Ver : ${yo.phone.wa_version}_
+_Platform : ${os.platform()}_
+_RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+_Ping : ${latensip.toFixed(4)} Second_
 
-*J-BOT | Recode By* @${628885960825}`
+_Runtime Bot_
+${formater3(uptime3)}
 
-let apaya = [
-{
-   buttonId: `${data.prefix}listmsg`,
-   buttonText: { displayText: "⋮☰ MENU" },
-   "type": "RESPONSE"
-},
-{
-   buttonId: `${data.prefix}infom`,
-   buttonText: { displayText: "✓ INFO" },
-   "type": "RESPONSE"
-}
-]
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+${msp}ATTENTION${msp}
+• _Don\'t spam bot_
+• _Sorry if it has a lot of bugs_
+• _You can get the source code of this bot on my github_
+• _If you are using whatsapp mod/old version, you can type ${data.prefix}listmenu_
 
-potone = fs.readFileSync('./media/fake.jpeg')
-buttonLoc(data.from, teksny, footer, apaya, potone)
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+*⌦* ${msp}INSTAGRAM${msp}
+_https://instagram.com/akmalz.real_
+
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+*⌦* ${msp}GITHUB${msp}
+_https://github.com/dvnz99_
+`
+footer = `© *${configs.botname}*`
+
+let apajg = [{
+	   buttonId: `${data.prefix}listmsg`,
+ 	   buttonText: { displayText: "⋮☰ MENU" },
+  	   "type": "RESPONSE"
+    	},
+    {
+     	   buttonId: `${data.prefix}infom`,
+           buttonText: { displayText: "✓ INFO" },
+           "type": "RESPONSE"
+	}]
+buttonLoc(data.from, teksny, footer, apajg, fs.readFileSync('./media/fake.jpeg'))
      break
 case 'imgtag':
 					if(!isAdmin || !data.isOwner) return data.reply('only be used by admin!')
