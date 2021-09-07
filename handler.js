@@ -1471,39 +1471,38 @@ let yo = client.user
 teksny = `${ucapanWaktu} @${num.split("@")[0]}, Have a nice day
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-${msp}USER INFO${msp}
-_Name : ${data.pushname}_
-_Bio : ${inpo}_
-_Status : ${prems}_
-_Limit : ${limite}_
+*⌦ USER INFO*
+• _Name : ${data.pushname}_
+• _Bio : ${inpo}_
+• _Status : ${prems}_
+• _Limit : ${limite}_
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-${msp}BOT INFO${msp}
-_Bot Name : ${configs.botname}_
-_Device : ${yo.phone.device_manufacturer}_
-_Model : ${yo.phone.device_model}_
-_OS : ${yo.phone.os_version}_
-_WA Ver : ${yo.phone.wa_version}_
-_Platform : ${os.platform()}_
-_RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
-_Ping : ${latensip.toFixed(4)} Second_
+*⌦ BOT INFO*
+• _Bot Name : ${configs.botname}_
+• _Device : ${yo.phone.device_manufacturer}_
+• _Model : ${yo.phone.device_model}_
+• _OS : ${yo.phone.os_version}_
+• _WA Ver : ${yo.phone.wa_version}_
+• _Platform : ${os.platform()}_
+• _RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+• _Ping : ${latensip.toFixed(4)} Second_
 
-_Runtime Bot_
-${formater3(uptime3)}
+*Runtime Bot*
+_${formater3(uptime3)}_
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-${msp}ATTENTION${msp}
+*⌦ ATTENTION*
 • _Don\'t spam bot_
 • _Sorry if it has a lot of bugs_
 • _You can get the source code of this bot on my github_
 • _If you are using whatsapp mod/old version, you can type ${data.prefix}listmenu_
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-*⌦* ${msp}INSTAGRAM${msp}
+*⌦ INSTAGRAM*
 _https://instagram.com/akmalz.real_
 
-┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-*⌦* ${msp}GITHUB${msp}
+*⌦ GITHUB*
 _https://github.com/dvnz99_
 `
 footer = `© *${configs.botname}*`
