@@ -1478,9 +1478,9 @@ _Limit : ${limite}_
 
 ${msp}BOT INFO${msp}
 _Bot Name : ${configs.botname}_
-Device : ${yo.phone.device_manufacturer}
-Model : ${yo.phone.device_model}
-OS : ${yo.phone.os_version}
+_Device : ${yo.phone.device_manufacturer}_
+_Model : ${yo.phone.device_model}_
+_OS : ${yo.phone.os_version}_
 _WA Ver : ${yo.phone.wa_version}_
 _Platform : ${os.platform()}_
 _RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
