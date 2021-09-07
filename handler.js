@@ -1470,12 +1470,14 @@ let yo = client.user
 
 teksny = `${ucapanWaktu} @${num.split("@")[0]}, Have a nice day
 
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 ${msp}USER INFO${msp}
 _Name : ${data.pushname}_
 _Bio : ${inpo}_
 _Status : ${prems}_
 _Limit : ${limite}_
 
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 ${msp}BOT INFO${msp}
 _Bot Name : ${configs.botname}_
 _Device : ${yo.phone.device_manufacturer}_
@@ -1489,18 +1491,18 @@ _Ping : ${latensip.toFixed(4)} Second_
 _Runtime Bot_
 ${formater3(uptime3)}
 
-┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 ${msp}ATTENTION${msp}
 • _Don\'t spam bot_
 • _Sorry if it has a lot of bugs_
 • _You can get the source code of this bot on my github_
 • _If you are using whatsapp mod/old version, you can type ${data.prefix}listmenu_
 
-┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 *⌦* ${msp}INSTAGRAM${msp}
 _https://instagram.com/akmalz.real_
 
-┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 *⌦* ${msp}GITHUB${msp}
 _https://github.com/dvnz99_
 `
