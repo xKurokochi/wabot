@@ -1500,12 +1500,12 @@ _${formater3(uptime3)}_
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 *⌦ INSTAGRAM*
-_https://instagram.com/akmalz.real_
+_${configs.igUrl}_
 
 *⌦ GITHUB*
-_https://github.com/dvnz99_
+_${configs.githubUrl}_
 `
-footer = `© *${configs.botname}*`
+footer = `© *${configs.botname} By ${configs.ownername}*`
 
 let apajg = [{
 	   buttonId: `${data.prefix}listmsg`,
