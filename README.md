@@ -14,7 +14,7 @@
  
 </div>
 
-# New Update
+# New Feature
 ```js
 > Button Location (Top Request)
 > Husbu
