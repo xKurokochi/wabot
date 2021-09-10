@@ -36,9 +36,28 @@ const { color, getBuffer, convertMp3 } = require('./lib/func')
 moment.tz.setDefault('Asia/Jakarta').locale('id');
 const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 
-/*
+let pendaftar = JSON.parse(fs.readFileSync('./lib/json/AutoRegUser.json'))
+const tmp_hit = JSON.parse(fs.readFileSync('./lib/json/tmp_hit.json'))
 
-*/
+const hitToday = `Hit Today : ${hitDay.length} Hit`
+const totalhit = `Total Hit : ${tmp_hit.length} Hit`
+
+module.exports = handle = (data) => {
+cht = data.message
+prefix = data.prefix
+bodek = (type === 'conversation' && cht.message.conversation.startsWith(prefix)) ? cht.message.conversation : (type == 'imageMessage') && cht.message.imageMessage.caption.startsWith(prefix) ? cht.message.imageMessage.caption : (type == 'videoMessage') && cht.message.videoMessage.caption.startsWith(prefix) ? cht.message.videoMessage.caption : (type == 'extendedTextMessage') && cht.message.extendedTextMessage.text.startsWith(prefix) ? cht.message.extendedTextMessage.text : ''
+const isComod = bodek.startsWith(prefix)
+// Auto Regist
+const isAutoRegUser = pendaftar.includes(data.sender)
+if (isComod && !isAutoRegUser){
+	pendaftar.push(data.sender)
+	fs.writeFileSync('./lib/json/AutoRegUser.json', JSON.stringify(pendaftar))
+}
+//WRITE TOTAL HIT
+tmp_hit.push(data.command)
+fs.writeFileSync('./lib/json/tmp_hit.json', JSON.stringify(tmp_hit))
+
+} //====================
 
 module.exports = handle = (client, Client) => {
     try {
@@ -1379,6 +1398,76 @@ Apabila terjadi error, kalian bisa menghubungi owner bot ketik ${data.prefix}own
             } else data.reply(`Wrong format!, tag someone or reply image with ${data.prefix}drawing`)
 
         })
+        Client.cmd.on('botstat', async (data) => {
+        	let totalchat = await client.chats.all()
+				let i = []
+				let giid = []
+				for (let mem of totalchat){
+					i.push(mem.jid)
+				}
+				for (let id of i){
+					if (id && id.includes('g.us')){
+						giid.push(id)
+					}
+				}
+
+const formater1 = function(seconds) {
+	seconds = Number(seconds);
+	var d = Math.floor(seconds / (3600 * 24));
+	var h = Math.floor(seconds % (3600 * 24) / 3600);
+	var m = Math.floor(seconds % 3600 / 60);
+	var s = Math.floor(seconds % 60);
+	var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+	var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+	var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+	var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+	return dDisplay + hDisplay + mDisplay + sDisplay;
+}
+            const uptime1 = process.uptime()
+			const timestampek = speed();
+            const latensipek = speed() - timestampek
+
+const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = client.user.phone
+
+        	teksnya = `*BOT STATS :*
+• _Bot Name : ${configs.botname}_
+• _Device : ${device_manufacturer}_
+• _Model : ${device_model}_
+• _WA Ver : ${wa_version}_
+• _MCC : ${mcc}_
+• _MNC : ${mnc}_
+• _OS : ${os_version}_
+• _Platform : ${os.platform()}_
+• _RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+• _Speed : ${latensipek.toFixed(4)} Second_
+• _${totalhit}_
+• _Total User : ${pendaftar.length} User_
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+*CHATS :*
+• _Group Chat : ${giid.length}_
+• _Personal Chat : ${totalchat.length - giid.length}_
+• _Total Chat : ${totalchat.length}_
+
+*Runtime Bot*
+_${formater1(uptime1)}_
+
+*Follow my IG :*
+_${configs.igUrl}_
+
+*My Github :*
+_${configs.githubUrl}_
+┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+*THANKS TO :*
+• WhatsApp
+• Akmalz
+• BryanRfly
+• Ben
+• Manurios
+• All Rest Api And Module Providers
+`
+infonye = info(data.prefix)
+data.reply(teksnya + infonye)
+        })
         //If you want case method
         Client.cmd.on('*', async (data) => {
             const {
@@ -1473,20 +1562,16 @@ teksny = `${ucapanWaktu} @${num.split("@")[0]}, Have a nice day
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
 *⌦ USER INFO*
 • _Name : ${data.pushname}_
-• _Bio : ${inpo}_
 • _Status : ${prems}_
 • _Limit : ${limite}_
+• _Time : ${time2} WIB_
 
 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
-*⌦ BOT INFO*
+*⌦ BOT INFO :*
 • _Bot Name : ${configs.botname}_
-• _Device : ${yo.phone.device_manufacturer}_
-• _Model : ${yo.phone.device_model}_
-• _OS : ${yo.phone.os_version}_
-• _WA Ver : ${yo.phone.wa_version}_
-• _Platform : ${os.platform()}_
-• _RAM : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
 • _Ping : ${latensip.toFixed(4)} Second_
+• _${totalhit}_
+• _Total User : ${pendaftar.length} User_
 
 *Runtime Bot*
 _${formater3(uptime3)}_
@@ -1513,7 +1598,7 @@ let apajg = [{
   	   "type": "RESPONSE"
     	},
     {
-     	   buttonId: `${data.prefix}infom`,
+     	   buttonId: `${data.prefix}botstat`,
            buttonText: { displayText: "✓ INFO" },
            "type": "RESPONSE"
 	}]
