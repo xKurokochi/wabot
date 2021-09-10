@@ -23,6 +23,8 @@
 > Self/Public
 > Asupan
 > Random Image
+> Total Hit
+> Auto Reg User
 ```
 
 # Install For Vps/Rdp/Windows
