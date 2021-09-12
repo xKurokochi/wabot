@@ -89,6 +89,7 @@ after running it you need to scan the qr
 > pkg i nodejs && ffmpeg && git clone
 > git clone https://github.com/Dvnz99/wabot
 > cd wabot
+> npm i
 > npm start
 ```
 
