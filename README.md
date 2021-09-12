@@ -29,7 +29,7 @@
 
 # Heroku/replit Method
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
-[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
+[![Run on Repl.it](https://repl.it/badge/github/dvnz99/wabot)](https://repl.it/github/Dvnz99/wabot)
 
 
 # Install For Vps/Rdp/Windows
