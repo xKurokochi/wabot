@@ -27,6 +27,13 @@
 > Auto Reg User
 ```
 
+# Heroku/replit Method
+
+* [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
+
+* [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
+
+
 # Install For Vps/Rdp/Windows
 
 ### FFMPEG
@@ -86,13 +93,6 @@ after running it you need to scan the qr
 > cd wabot
 > npm start
 ```
-
-# Heroku/replit Method
-
-* [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
-
-* [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
-
 
 # How To Get Apikey
 * Change [config.json](https://github.com/Dvnz99/wabot/blob/master/config.json)
