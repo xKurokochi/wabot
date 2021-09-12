@@ -66,7 +66,6 @@ or
 > pm2 start .
 > pm2 monit
 ```
-
 **2. stop the Whatsapp bot**
 
 for npm :
@@ -81,12 +80,18 @@ for pm2 :
 after running it you need to scan the qr
 
 # For termux users before running the above command write this command
-* This repository does not support termux 🙏
-* but you can use heroku or replit
+```sh
+> pkg i nodejs && ffmpeg && git clone
+> git clone https://github.com/Dvnz99/wabot
+> cd wabot
+> npm start
+```
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
+# Heroku/replit Method
 
-[![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
+* [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dvnz99/wabot/)
+
+* [![Run on Repl.it](https://repl.it/badge/github/justpiple/whatsapp-bot)](https://repl.it/github/Dvnz99/wabot)
 
 
 # How To Get Apikey
