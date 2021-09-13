@@ -14,7 +14,7 @@
  
 </div>
 
-# New Feature
+# Feature Info
 ```js
 > Button Location
 > Husbu
@@ -87,11 +87,19 @@ after running it you need to scan the qr
 
 # For termux users before running the above command write this command
 ```sh
+INSTALL
 > pkg i nodejs && ffmpeg && git clone
 > git clone https://github.com/Dvnz99/wabot
 > cd wabot
 > npm i
-> npm start/node .
+
+RUN BOT
+> npm start
+or
+> node .
+
+TURN OFF
+> ctrl + c
 ```
 
 # How To Get Apikey
