@@ -16,7 +16,7 @@
 
 # New Feature
 ```js
-> Button Location (Top Request)
+> Button Location
 > Husbu
 > Neko
 > Hentai
