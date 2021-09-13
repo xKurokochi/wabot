@@ -25,6 +25,7 @@
 > Random Image
 > Total Hit
 > Auto Reg User
+> Etc.
 ```
 
 # Heroku/replit Method
