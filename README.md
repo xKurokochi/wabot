@@ -54,9 +54,9 @@ Clone this project
 Install the dependencies:
 
 ```bash
-> npm install
-> npm install -g sharp
-> npm install -g pm2
+> npm i
+> npm i -g sharp
+> npm i -g pm2
 ```
 
 ### Usage
@@ -91,7 +91,7 @@ after running it you need to scan the qr
 > git clone https://github.com/Dvnz99/wabot
 > cd wabot
 > npm i
-> npm start
+> npm start/node .
 ```
 
 # How To Get Apikey
