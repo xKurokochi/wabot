@@ -85,7 +85,7 @@ for pm2 :
 
 after running it you need to scan the qr
 
-# For termux users before running the above command write this command
+# For termux users
 ```sh
 INSTALL
 > pkg i nodejs && ffmpeg && git clone
