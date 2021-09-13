@@ -1,7 +1,7 @@
 {	
 	"prefix": "multi", 
 	"defaultSessionName": "bot", 
-	"zeksKey": "apivinz", 
+	"zeksKey": "jbot-aja", 
 	"autoRead": false, 
 	"maxLimit": 15, 
 	"ownerList": ["628885960825@s.whatsapp.net","62857024477637@s.whatsapp.net"],
