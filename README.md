@@ -15,7 +15,7 @@
 </div>
 
 # Feature Info
-```js
+```
 > Button Location
 > Husbu
 > Neko
