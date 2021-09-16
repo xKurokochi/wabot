@@ -104,7 +104,7 @@ TURN OFF
 ```
 
 # How To Get Apikey
-* Change [config.json](https://github.com/Dvnz99/wabot/blob/master/config.json)
+* Change <b>[config.json](https://github.com/Dvnz99/wabot/blob/master/config.json)</b>
 
 * Register in <b>[zeks.me](https://zeks.me)</b> to get apiKey then enter to zeksKey in [config.json](https://github.com/Dvnz99/wabot/blob/master/config.json)
 
