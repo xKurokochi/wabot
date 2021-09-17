@@ -2,6 +2,10 @@
 	"prefix": "multi", 
 	"defaultSessionName": "bot", 
 	"zeksKey": "jbot-aja", 
+	"xkey": "your_key", 
+        "eztykey": "eztyb",
+        "lolkey": "your_key", 
+        "uhykey": "J-BOT",
 	"autoRead": false, 
 	"maxLimit": 15, 
 	"ownerList": ["628885960825@s.whatsapp.net","62857024477637@s.whatsapp.net"],
@@ -13,10 +17,6 @@
         "githubUrl": "https://github.com/dvnz99",
 	"botname": "J-BOT", 
         "ownername": "Akmalz",
-	"xkey": "your_key", 
-        "eztykey": "eztyb",
-        "lolkey": "your_key", 
-        "uhykey": "J-BOT",
 	"pack": "J-BOT", 
 	"author": "By Akmalz"
 }
